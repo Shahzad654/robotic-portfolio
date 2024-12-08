@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Home from "./Home";
 import Projects from "./Projects";
 import Experience from "./Experience";
+import Publications from "./Publications";
 
 export default function MainContent() {
   return (
@@ -10,6 +11,7 @@ export default function MainContent() {
       <Home />
       <Projects />
       <Experience/>
+      <Publications/>
     </MainPageStyled>
   );
 }
@@ -17,7 +19,12 @@ export default function MainContent() {
 const MainPageStyled = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   gap: 2rem;
   flex-direction: column;
+  overflow: hidden;
+
+  @media (max-width: 640px) {
+    /* align-items: center; */
+  }
 `;

@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
-import {useNavigate} from 'react-router-dom'
 import BackdropWrapper from "../components/modals/BackdropWrapper";
 import ExperienceModal from "../components/modals/ExperienceModal";
-import { FaArrowRight } from "react-icons/fa6";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 
 const experienceDetails = [
@@ -32,13 +32,37 @@ const experienceDetails = [
     ],
     html: "https://www.youtube.com/embed/2z80TuAxnKA?si=qeMpS9_PRrLezNmD",
   },
+  {
+    title: "Drone and Autonomous Systems Lab (DASL)",
+    role: "Researcher",
+    description: [
+      "Conducted system design and experimentation in over 5+ cutting-edge publications from a world-renowned robotics lab.",
+      "Demonstrated key research skills over several projects in: Computer Vision; Virtual Reality; LiDAR integration; sensor signal processing; wireless networking; low-latency robot teleoperation; and robotic telepresence.",
+      "Won the Geekpwn Robot Agent Challenge Finals international robotics competition in Shanghai, China.",
+    ],
+  },
+  {
+    title: "Industrial Automation Center",
+    role: "Project manager",
+    description: [
+      "Lead 10+ people team for a fortune 500 company contract. Designed and Integrated systems to achieve dynamic pick and place using industrial manipulators.",
+    ],
+  },
+
+  {
+    title: "PIRE Fellowship KAIST",
+    role: "Researcher",
+    description: [
+      "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
+      "Utilized computer vision to localize and classify several different objects.",
+      "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+    ],
+  },
 ];
 
-export default function Experience() {
+export default function ExperiencePage() {
   const [backdrop, setBackdrop] = useState(false);
   const [selectedExperience, setSelectedExperience] = useState(null);
-
-  const navigate = useNavigate()
 
   const passHandler = (experience) => {
     setSelectedExperience(experience);
@@ -57,6 +81,7 @@ export default function Experience() {
         }
         open={backdrop}
       />
+      <Navbar/>
       <StyledExperience
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: -50, opacity: 0 }}
@@ -75,38 +100,30 @@ export default function Experience() {
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
                 initial={{ y: -20, opacity: 0 }}
-               transition={{ duration: 1, delay: 0.3 }}
+                transition={{ duration: 1, delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(experience)}
               >
                 <div className="content">
                   <h3>{experience.title}</h3>
                   <h5>{experience.role}</h5>
+                  {/* <p>{experience.description}</p> */}
                 </div>
               </motion.div>
             ))}
 
-            <motion.button
-                whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: -20, opacity: 0 }}
-                transition={{ duration: 1, delay: 0.2 + 0.8 }}
-                viewport={{ once: true }}
-              onClick={() => {
-                navigate("/experience");
-              }}
-            >
-              View More{" "}
-              <FaArrowRight style={{ width: "13px", height: "13px" }} />
-            </motion.button>
+            
           </div>
         </div>
       </StyledExperience>
+      <Footer/>
     </>
   );
 }
 
 const StyledExperience = styled(motion.div)`
-  margin-top: var(--section-margin);
+  width: 80%;
+  margin: var(--section-margin) auto;
 
   .main_experience {
     h1 {
@@ -125,40 +142,31 @@ const StyledExperience = styled(motion.div)`
     .experience_cards {
       width: 100%;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
       flex-direction: column;
       gap: 2rem;
 
       .card {
         width: 100%;
-        /* height: min-content; */
-        height: 150px;
+        height: 200px;
         border-radius: var(--m-radius);
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 2rem;
-        /* padding-left: 2%;
-        padding-right: 2%;
-        margin-bottom: 10%; */
         background-color: var(--background-color-light);
         cursor: pointer;
 
         .content {
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           flex-direction: column;
           gap: 1rem;
-          /* padding-top: 5%;
-          padding-left: 1%;
-          padding-bottom: 5%; */
-
-          h3,
-          h5 {
-            text-align: center;
-          }
+          padding-top: 5%;
+          padding-left: 3%;
+          padding-bottom: 5%;
         }
 
         .icon {
@@ -175,9 +183,6 @@ const StyledExperience = styled(motion.div)`
       h1 {
         text-align: center;
       }
-      .experience_cards {
-        align-items: center;
-      }
     }
   }
 
@@ -185,13 +190,6 @@ const StyledExperience = styled(motion.div)`
     .main_experience {
       h1 {
         text-align: center;
-      }
-      .experience_cards {
-        align-items: center;
-        .cards {
-          .content {
-          }
-        }
       }
     }
   }
@@ -208,28 +206,17 @@ const StyledExperience = styled(motion.div)`
       .card {
         background-color: var(--light-gray-color);
         .content {
-          /* h3,
-          h5 {
-            color: white;
-          } */
-           
+          h3,h5 {
+            color: black;
+          }
         }
       }
-      button{
-     background-color: var(--light-blue-color);
-     /* &:hover{
-       background-color: var(--light-gray-color);
-     } */
-    }
     }
   }
 
   body.dark-mode & {
     .experience_cards {
       .card {
-        /* &:hover {
-          background-color: var(--background-color-light);
-        } */
         .content {
           p {
             color: var(--text-light-color);

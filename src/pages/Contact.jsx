@@ -39,17 +39,17 @@ const StyledContact = styled(motion.div)`
 
   .main_contact {
     h1 {
-      color: white;
+      /* color: white; */
       font-size: var(--xl-heading);
-      font-weight: bolder;
       margin-bottom: var(--heading-margin);
 
       span {
         display: block;
-        color: var(--heading-color);
+        color: var(--background-color-light);
         font-size: var(--xl-heading);
-        font-weight: bolder;
+        font-weight: 600;
         line-height: 1;
+
       }
     }
 
@@ -58,6 +58,7 @@ const StyledContact = styled(motion.div)`
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
+      margin: var(--section-margin) auto;
       label {
         align-self: flex-start;
         width: 50%;
@@ -66,6 +67,7 @@ const StyledContact = styled(motion.div)`
       input {
         width: 50%;
         margin: auto;
+        background-color: var(--background-color-light);
       }
       textarea {
         border-radius: var(--s-radius);
@@ -80,4 +82,82 @@ const StyledContact = styled(motion.div)`
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    .main_contact {
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .main_contact {
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        label,
+        input,
+        textarea,
+        button {
+          width: 70%;
+        }
+        
+      }
+    }
+  }
+
+  body.light-mode & {
+     
+    .main_contact {
+      h1 {
+
+      span {
+       color: var(--light-gray-color);
+      }
+    }
+      
+      form {
+        input,
+        textarea {
+          /* background-color: var(--light-gray-color); */
+          color: white;
+           background-color: var(--light-gray-color);
+
+        }
+
+        input:placeholder{
+           color: black;
+        }
+
+        input:focus {
+  border-color: var(--light-blue-color);
+}
+textarea:focus {
+  border-color: var(--light-blue-color);
+}
+
+        
+         button {
+          background-color: var( --light-blue-color);
+        &:hover {
+          background-color: var(--light-gray-color);
+        }
+      }
+    }
+  }
+
+  body.dark-mode & {
+    .main_contact {
+      form {
+        input,
+        textarea {
+          background-color: var(--background-color-light);
+        }
+      }
+    }
+  }
+}
 `;

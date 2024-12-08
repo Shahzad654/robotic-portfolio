@@ -11,7 +11,7 @@ export default function Home() {
     >
       <div className="main_home">
         <h1>
-          SOFTWARE <span>ENGINEER</span>
+          MECHANICAL <span>ENGINEER</span>
         </h1>
 
         <p>
@@ -21,7 +21,7 @@ export default function Home() {
 
         <div className="stats">
           <div className="experience">
-            <h1>+12</h1>
+            <h1>+4</h1>
             <p>YEARS OF EXPERIENCE</p>
           </div>
 
@@ -49,15 +49,17 @@ const StyledHome = styled(motion.div)`
     gap: 1rem;
 
     h1 {
-      color: white;
+      /* color: white; */
       font-size: var(--xl-heading);
-      font-weight: bolder;
+      /* font-weight: bolder; */
+      margin-bottom: var(--heading-margin);
 
       span {
         display: block;
-        color: var(--heading-color);
+        /* color: var(--heading-color); */
+        color: var(--background-color-light);
         font-size: var(--xl-heading);
-        font-weight: bolder;
+        font-weight: 600;
         line-height: 1;
       }
     }
@@ -73,6 +75,53 @@ const StyledHome = styled(motion.div)`
       gap: 2rem;
       h1 {
         font-size: var(--ml-heading);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .main_home {
+     
+      /* justify-content: space-between; */
+      align-items: center;
+      h1{
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .main_home {
+      align-items: center;
+
+      p {
+        text-align: center;
+      }
+      .stats {
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  }
+
+  body.light-mode & {
+    .main_home {
+       h1{
+        span{
+          color:var( --light-gray-color);
+        }
+      }
+      p {
+        color: var(--text-light-color);
+      }
+    }
+  }
+
+  body.dark-mode & {
+    .main_home {
+      p {
+        color: var(--text-light-color);
       }
     }
   }

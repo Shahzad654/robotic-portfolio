@@ -17,9 +17,9 @@ export default function ProfileCard() {
       >
         <div className="main_profile">
           <img src={ProfileImg} alt="" />
-          <h2>Akshay</h2>
+          <h2>Akshay Dave</h2>
           <p>
-            A Software Engineer who has developed countless innovative
+            A Mechanical Engineer who has developed countless innovative
             solutions.
           </p>
 
@@ -36,18 +36,24 @@ export default function ProfileCard() {
 }
 
 const StyledProfile = styled(motion.div)`
-  height: 90vh;
+  height: max-content;
   width: 32%;
-  background-color: white;
   border-radius: var(--l-radius);
+  background-color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .main_profile {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     flex-direction: column;
     padding-top: 5%;
+    padding-bottom: 5%;
+
     img {
       width: 70%;
       height: auto;
@@ -55,27 +61,74 @@ const StyledProfile = styled(motion.div)`
       border-radius: var(--l-radius);
     }
     h2 {
+      color: var(--background-color-dark);
       text-align: center;
       font-weight: bold;
     }
     p {
+      color: var(--background-color-dark);
       text-align: center;
       font-weight: 600;
     }
 
-    .icon_container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        padding-bottom: 30%;
-        .icon{
-            color: var(--primary-color);
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-        }
+    .icon_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      .icon {
+        color: var(--primary-color);
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+      }
+    }
+  }
 
+  body.dark-mode & {
+    background-color: white;
+    h2 {
+      color: var(--background-color-dark);
+    }
+    p {
+      color: var(--text-light-color);
+    }
+  }
+
+  body.light-mode & {
+    background-color: var(--light-gray-color);
+    /* h2 {
+      color: white;
+    }
+
+    p {
+      color: white;
+    } */
+
+    .icon_container {
+      .icon {
+        color: var(--light-blue-color);
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin: var(--section-margin) auto;
+    .main_profile {
+      /* max-height: 80vh; */
+      img {
+        width: 50%;
+      }
+      h2 {
+        color: var(--background-color-dark);
+        text-align: center;
+        font-weight: bold;
+      }
+      p {
+        color: var(--background-color-dark);
+        text-align: center;
+        font-weight: 600;
+      }
     }
   }
 `;

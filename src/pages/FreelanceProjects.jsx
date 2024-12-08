@@ -1,34 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ProjectImg1 from "../assets/Project1.jpg";
-import ProjectImg4 from "../assets/Project4.png";
 import { motion } from "framer-motion";
 import ProjectModal from "../components/modals/ProjectModal";
 import BackdropWrapper from "../components/modals/BackdropWrapper";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import {projectDetails} from "../Projects";
 
-const projectDetails = [
-  {
-    title: "Hand Crafted Notes",
-    role: "System Designer, Integrator and Technology lead",
-    description: [
-      "Led the system design and integration of a personalized note-taking platform.",
-      "Oversaw technology decisions to ensure seamless performance and scalability.",
-    ],
-    members: "Aksahy, Sirah",
-    image: ProjectImg1,
-  },
-  {
-    title: "Home Lab",
-    role: "System Designer, Integrator",
-    description:
-      "A compact home lab server rack with servers, networking hardware, and organized cabling, ideal for experimenting with virtualization, networking, and IT solutions.",
-    image: ProjectImg4,
-    members: "Aksahy, Sirah",
-  },
-  
-];
 
-export default function Projects() {
+export default function FreelanceProjects() {
   const [backdrop, setBackdrop] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -41,7 +21,7 @@ export default function Projects() {
     <>
       <BackdropWrapper
         handleBackdrop={() => setBackdrop(false)}
-        smallSize={true}
+        smallSize={false}
         element={
           <ProjectModal
             backdropHandler={() => setBackdrop(false)}
@@ -50,6 +30,7 @@ export default function Projects() {
         }
         open={backdrop}
       />
+      <Navbar />
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: -50, opacity: 0 }}
@@ -58,7 +39,7 @@ export default function Projects() {
       >
         <div className="main_projects">
           <h1>
-            RECENT <span>PROJECTS</span>
+            FREELANCE <span>PROJECTS</span>
           </h1>
 
           <div className="project_cards">
@@ -72,12 +53,9 @@ export default function Projects() {
                 viewport={{ once: true }}
                 onClick={() => passHandler(project)}
               >
-                <div className="image_container">
-                  <img src={project.image} alt={project.title} />
-                </div>
-
+                <img src={project.image} alt={project.title} />
                 <div className="content">
-                  <h3>{project.title}</h3>
+                  <h4>{project.title}</h4>
                   <p>{project.role}</p>
                 </div>
               </motion.div>
@@ -85,12 +63,16 @@ export default function Projects() {
           </div>
         </div>
       </StyledProjects>
+
+      <Footer />
     </>
   );
 }
 
 const StyledProjects = styled(motion.div)`
-  margin-top: var(--section-margin);
+  width: 80%;
+  margin: var(--section-margin) auto;
+  height: max-content;
   .main_projects {
     h1 {
       font-size: var(--xl-heading);
@@ -106,60 +88,55 @@ const StyledProjects = styled(motion.div)`
     }
 
     .project_cards {
-   
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-direction: column;
+      flex-wrap: wrap;
+
       gap: 2rem;
 
       .card {
-        width: 100%;
-        height: 160px;
-         box-sizing: border-box;
-        /* height: min-content; */
+        width: 300px;
+        height: 350px;
+        margin: auto;
         border-radius: var(--m-radius);
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        /* justify-content: center;
+        align-items: center; */
+
+        flex-direction: column;
         gap: 1rem;
-        padding-left: 2%;
         background-color: var(--background-color-light);
         cursor: pointer;
 
-        .image_container {
-          img {
-            display: block;
-            object-position: center center;
-            /* width: 100%;
-            height: 100%; */
-            /* width: 150px;
-          height: 150px; */
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: var(--m-radius);
-          }
+        img {
+          width: 100%;
+          height: 200px;
+          /* width: 100%;
+          height: 100%; */
+          object-fit: cover;
+          border-radius: var(--m-radius);
+          overflow: hidden;
         }
-        /* 
-        &:hover {
-          background-color: var(--background-color-light);
-          cursor: pointer;
-        } */
 
         .content {
           display: flex;
           justify-content: center;
-          align-items: flex-start;
+          align-items: center;
           flex-direction: column;
           gap: 1rem;
-          h3 {
-            /* color: white; */
-            /* text-align: center; */
+
+          h5 {
+            color: var(--background-color-dark);
           }
+
+          h4 {
+            text-align: center;
+            font-weight: 600;
+          }
+
           p {
-            /* text-align: center; */
-            /* color: var(--heading-color); */
+            text-align: center;
           }
         }
       }
@@ -193,17 +170,14 @@ const StyledProjects = styled(motion.div)`
     .project_cards {
       .card {
         background-color: var(--light-gray-color);
-
-        .content {
-          /* h3 {
-            color: white;
-            
-          }
-          p {
-             color: white;
-          } */
+         .content {
+          h4,
+        p {
+          color: black;
         }
       }
+      }
+     
     }
   }
 

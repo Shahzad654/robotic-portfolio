@@ -1,11 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import Navbar from '../components/Navbar'
-import ProfileCard from './ProfileCard'
-import MainContent from './MainContent'
-import Skills from './Skills'
-import Services from './Services'
-import Contact from './Contact'
+import React from "react";
+import styled from "styled-components";
+import Navbar from "../components/Navbar";
+import ProfileCard from "./ProfileCard";
+import MainContent from "./MainContent";
+import Skills from "./Skills";
+import Services from "./Services";
+import Reviews from "./Reviews";
+import Contact from "./Contact";
+import Footer from "../components/Footer";
 
 export default function MainPage() {
   return (
@@ -15,9 +17,11 @@ export default function MainPage() {
         <ProfileCard />
         <MainContent />
       </StyledPage>
-      <Skills/>
-      <Services/>
-      <Contact/>
+      <Skills />
+      <Services />
+      <Reviews />
+      <Contact />
+      <Footer />
     </>
   );
 }
@@ -43,7 +47,23 @@ const StyledPage = styled.div`
 
   & > :nth-child(2) {
     flex-basis: 66%;
-    overflow-y: auto;
+    overflow-y: hidden;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > :first-child {
+      position: relative;
+      top: 5%;
+      flex-basis: 100%;
+    }
+
+    & > :nth-child(2) {
+      flex-basis: 100%;
+      overflow-y: hidden;
+      /* align-items: center; */
+    }
   }
 `;
-
