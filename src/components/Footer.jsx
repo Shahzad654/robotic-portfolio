@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export default function Footer() {
   return (
     <StyledFooter>
-      <p>&#169; 2024 Akshy. All rights reserved.</p>
+      <p>&#169; 2024 Akshy Dave. All rights reserved.</p>
     </StyledFooter>
   );
 }

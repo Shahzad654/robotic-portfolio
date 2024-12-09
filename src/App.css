@@ -17,8 +17,12 @@
 
   --section-margin: 80px;
   --heading-margin: 50px;
-
-  --background-color-light: rgba(255, 255, 255, 0.03);
+/* 
+  --background-color-light: rgba(255, 255, 255, 0.03); */
+  --background-color-light: rgba(182,
+    180,
+    189,
+    0.2);
   --background-color-dark: #151312;
   --heading-color: rgba(182, 180, 189, 0.2);
   --primary-color: #E94C4F;
@@ -63,8 +67,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color-light: rgba(255, 255, 255, 0.03);
+    /* --background-color-light: rgba(255, 255, 255, 0.03); */
     --background-color-dark: #151312;
+    --background-color-light: rgba(182,
+          180,
+          189,
+          0.2);
     --text-color: #002140;
     --text-light-color: #72767E;
     --text-white-color: white;

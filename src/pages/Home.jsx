@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 
 export default function Home() {
+  
   return (
     <StyledHome
       initial={{ y: -50, opacity: 0 }}
@@ -21,17 +23,24 @@ export default function Home() {
 
         <div className="stats">
           <div className="experience">
-            <h1>+4</h1>
+            {/* <h1>+4</h1> */}
+            <h1>
+              +<CountUp start={0} end={4} duration={2} delay={0.3} className="count-up" />
+            </h1>
             <p>YEARS OF EXPERIENCE</p>
           </div>
 
           <div className="projects">
-            <h1>+46</h1>
+            <h1>
+              +<CountUp start={0} end={46} duration={2} delay={0.3} className="count-up" />
+            </h1>
             <p>PROJECTS COMPLETED</p>
           </div>
 
           <div className="experience">
-            <h1>+20</h1>
+            <h1>
+              +<CountUp start={0} end={20} duration={2} delay={0.3} className="count-up" />
+            </h1>
             <p>WORLDWIDE CLIENTS</p>
           </div>
         </div>
@@ -76,6 +85,13 @@ const StyledHome = styled(motion.div)`
       h1 {
         font-size: var(--ml-heading);
         margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .count-up{
+          font-size: var(--ml-heading);
+          color: black;
+        }
       }
     }
   }
@@ -123,6 +139,14 @@ const StyledHome = styled(motion.div)`
       p {
         color: var(--text-light-color);
       }
+
+       .stats {
+        h1{
+          .count-up{
+            color: white;
+          }
+        }
+       }
     }
   }
 `;

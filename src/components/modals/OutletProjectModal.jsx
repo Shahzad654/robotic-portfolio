@@ -74,7 +74,7 @@ const StyledProject = styled.section`
       }
       p {
         text-align: center;
-        color: var(--background-color-dark);
+        color: white;
       }
     }
   }
@@ -84,6 +84,15 @@ const StyledProject = styled.section`
 .close-icon{
 color: var(--light-blue-color)
   }
+  }
+.project_cards{
+  .content {
+     
+      p {
+
+        color: black;
+      }
+    }
   }
 }
 `;

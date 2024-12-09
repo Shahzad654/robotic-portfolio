@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import Rating from "@mui/material/Rating";
 import useEmblaCarousel from "embla-carousel-react";
@@ -6,7 +6,7 @@ import { GrNext, GrPrevious } from "react-icons/gr";
 import { motion } from "framer-motion";
 
 export default function Reviews() {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
    const [value, setValue] = useState(5);
 
   const scrollPrev = useCallback(() => {
@@ -15,6 +15,16 @@ export default function Reviews() {
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const interval = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 4000); 
+
+    return () => clearInterval(interval); 
   }, [emblaApi]);
 
   return (

@@ -123,7 +123,7 @@ const StyledContact = styled(motion.div)`
         input,
         textarea {
           /* background-color: var(--light-gray-color); */
-          color: white;
+          color: black;
            background-color: var(--light-gray-color);
 
         }
@@ -132,19 +132,16 @@ const StyledContact = styled(motion.div)`
            color: black;
         }
 
-        input:focus {
-  border-color: var(--light-blue-color);
-}
-textarea:focus {
+        input:focus, textarea:focus {
   border-color: var(--light-blue-color);
 }
 
         
          button {
           background-color: var( --light-blue-color);
-        &:hover {
+        /* &:hover {
           background-color: var(--light-gray-color);
-        }
+        } */
       }
     }
   }

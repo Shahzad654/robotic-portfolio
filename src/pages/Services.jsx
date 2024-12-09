@@ -33,7 +33,7 @@ export default function Services() {
           className="cards_center"
           whileInView={{ y: 0, opacity: 1 }}
           initial={{ y: -50, opacity: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1, delay: 0.6 }}
           viewport={{ once: true }}
         >
           <h2>$399</h2>
@@ -50,7 +50,7 @@ export default function Services() {
           className="cards"
           whileInView={{ y: 0, opacity: 1 }}
           initial={{ y: -50, opacity: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
+          transition={{ duration: 1, delay: 0.9 }}
           viewport={{ once: true }}
         >
           <h2>$299</h2>

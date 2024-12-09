@@ -217,9 +217,9 @@ export default function Navbar() {
 
 
 const StyledNavbar = styled.div`
-  min-height: 10vh;
+  /* max-height: 10vh; */
   /* margin-top: 2%; */
-  position: sticky;
+ 
 
   .main_navbar {
     background-color: var(--background-color-light);
@@ -227,7 +227,7 @@ const StyledNavbar = styled.div`
     padding: 0 20px;
 
     width: max-content;
-    height: 8vh;
+    height: 50px;
     margin: auto;
     display: flex;
     justify-content: center;

@@ -191,12 +191,12 @@ const StyledPublications = styled(motion.div)`
       .card {
         background-color: var(--light-gray-color);
         .content {
-          /* ul{
+          ul{
             li{
-              color: white;
+              color: black;
             }
             
-          } */
+          }
         }
          .icon {
           color: var( --light-blue-color);
@@ -211,6 +211,12 @@ const StyledPublications = styled(motion.div)`
         .content {
           p {
             color: var(--text-light-color);
+          }
+          ul{
+            li{
+              color: white;
+            }
+            
           }
         }
       }

@@ -167,7 +167,7 @@ return (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
           viewport={{ once: false }}
-          
+          whileHover={{ scale: 1.1, rotate: 1 }} 
         >
           {/* <div className="image_border">
            
@@ -184,6 +184,7 @@ return (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
           viewport={{ once: false }}
+          whileHover={{ scale: 1.1, }} 
         >
           {/* <div className="image_border">
             
@@ -641,14 +642,14 @@ const StyledDevops = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: 1.6rem;
     margin-top: var(--section-margin);
     .card {
       width: 250px;
       height: 150px;
       /* background-color: var(--background-color-light); */
       background: #1E3A8A99;
-box-shadow:  -20px -20px 60px #1a317580,
+      box-shadow:  -20px -20px 60px #1a317580,
              20px 20px 60px white;
       border-radius: var(--m-radius);
       display: flex;

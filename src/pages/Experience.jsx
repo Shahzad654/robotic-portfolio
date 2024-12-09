@@ -89,7 +89,7 @@ export default function Experience() {
             <motion.button
                 whileInView={{ y: 0, opacity: 1 }}
                 initial={{ y: -20, opacity: 0 }}
-                transition={{ duration: 1, delay: 0.2 + 0.8 }}
+                transition={{ duration: 1, delay: 0.2 + 0.4 }}
                 viewport={{ once: true }}
               onClick={() => {
                 navigate("/experience");
