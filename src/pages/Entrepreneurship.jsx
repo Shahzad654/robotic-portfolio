@@ -166,7 +166,7 @@ height: 100vh;
 .main_entrepreneurship{
     
     h1{
-      /* font-size: var(--xl-heading); */
+      font-size: var(--xl-heading); 
       margin-bottom: var(--heading-margin);
      
     }
