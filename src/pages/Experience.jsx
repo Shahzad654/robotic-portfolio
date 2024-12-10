@@ -5,33 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import BackdropWrapper from "../components/modals/BackdropWrapper";
 import ExperienceModal from "../components/modals/ExperienceModal";
 import { FaArrowRight } from "react-icons/fa6";
+import experienceDetails from "../Experience";
 
-
-const experienceDetails = [
-  {
-    title: "ANA Avatar Xprize Team (AVATAR-HUBO)",
-    role: "Lean Integration Engineer",
-    description: [
-      "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-      "Integrated novel Virtual Reality software and hardware interfaces to streamline intuitive humanoid teleoperation.",
-      "Spearheaded the design and manufacturing of a new 2 Degree-of-Freedom robotic neck linkage.",
-      "Developed a seamless low-latency audio/video pipeline for real-time bidirectional communication.",
-      "Constructed a new overarching network architecture to facilitate wireless mobile manipulator control.",
-      "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
-    ],
-    html: "https://www.youtube.com/embed/E9DXL_hvtdI?si=lY8NhJ4sf7Jwfnnl&amp;start=1",
-  },
-  {
-    title: "TSLA/UNLV Independent Research Contract",
-    role: "Researcher",
-    description: [
-      "Designed an Augmented Reality teleoperation system for Tesla’s famous robot quadruped SPOT.",
-      "Implemented perceptive mobile manipulation with SPOT via Haddington Dynamics’ robotic manipulator Dexter.",
-      "Produced a Virtual Reality-based robot simulator via the 3D Game Engine Unity.",
-    ],
-    html: "https://www.youtube.com/embed/2z80TuAxnKA?si=qeMpS9_PRrLezNmD",
-  },
-];
 
 export default function Experience() {
   const [backdrop, setBackdrop] = useState(false);
@@ -68,7 +43,7 @@ export default function Experience() {
           </h1>
 
           <div className="experience_cards">
-            {experienceDetails.map((experience, index) => (
+            {experienceDetails.slice(0, 2).map((experience, index) => ( // Show only first two experiences
               <motion.div
                 key={index}
                 className="card"
@@ -98,6 +73,7 @@ export default function Experience() {
               <FaArrowRight style={{ width: "13px", height: "13px" }} />
             </motion.button>
           </div>
+
         </div>
       </StyledExperience>
     </>

@@ -5,6 +5,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Footer from '../components/Footer';
+import { entrepenurshipDetails } from '../Projects';
 
 export default function Entrepreneurship() {
     const [value, setValue] = useState(0);
@@ -79,8 +80,8 @@ export default function Entrepreneurship() {
                                     },
                                 }}
                             >
-                                <Tab label="Company1" />
-                                <Tab label="Company2" />
+                                <Tab label="XYZ1" />
+                                <Tab label="XYZ2" />
                             </Tabs>
                         </Box>
                     </div>
@@ -99,9 +100,16 @@ export default function Entrepreneurship() {
 const Company1 = () => {
     
     return (
-      <>
-      Company1
-      </>
+      <StyledCompany1>
+      <div className="company1_container">
+                <h3>{entrepenurshipDetails.title}</h3>
+        {entrepenurshipDetails[0].description.map((point, index) => (
+          <ul key={index}>
+            <li>{point}</li>
+          </ul>
+        ))}
+      </div>
+      </StyledCompany1>
     );
 };
 
@@ -109,10 +117,46 @@ const Company2 = () => {
     
     return (
         <> 
-        Company2
+            <StyledCompany1>
+                <div className="company1_container">
+                    <h3>{entrepenurshipDetails.title}</h3>
+                    {entrepenurshipDetails[0].description.map((point, index) => (
+                        <ul key={index}>
+                            <li>{point}</li>
+                        </ul>
+                    ))}
+                </div>
+            </StyledCompany1>
         </>
     );
 };
+
+const StyledCompany1 = styled.div`
+margin-top: var(--section-margin);
+
+.company1_container{
+    ul{
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+        li{
+           list-style: circle;
+           max-width: 80ch;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .company1_container{
+    ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+}
+}
+`
 
 
 const StyledEntrepreneurship = styled.div`
@@ -122,9 +166,13 @@ height: 100vh;
 .main_entrepreneurship{
     
     h1{
-      font-size: var(--xl-heading);
+      /* font-size: var(--xl-heading); */
       margin-bottom: var(--heading-margin);
      
+    }
+
+    .entrepreneurship_tabs{
+        margin-top: var(--section-margin);
     }
 }
 
