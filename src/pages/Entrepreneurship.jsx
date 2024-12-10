@@ -154,7 +154,7 @@ const StyledCompany1 = styled.div`
 const StyledEntrepreneurship = styled.div`
   width: 80%;
   margin: var(--section-margin) auto;
-  height: 100vh;
+  height: max-content;
   .main_entrepreneurship {
     h1 {
       font-size: var(--xl-heading);

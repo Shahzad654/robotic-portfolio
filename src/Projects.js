@@ -80,6 +80,9 @@ const entrepenurshipDetails = [
       "Successfully conceptualized and led the design and development of XYZ, an autonomous drone solution, from ideation to execution, ensuring innovation in fast, reliable, and efficient package delivery.",
       "Identified market needs for time-efficient delivery solutions and implemented cutting-edge technology to address logistical challenges, optimizing delivery time and operational costs.",
       "Coordinated with diverse technical and business teams to manage product timelines, allocate resources effectively, and streamline technical milestones, driving the successful delivery of XYZ as per business goals.",
+      "Developed and implemented strategic business plans to identify market opportunities, streamline operations, and create sustainable growth pathways, aligning with organizational goals.",
+      "Built and managed a high-performing, cross-functional team by fostering open communication, motivation, and teamwork to achieve project objectives and drive organizational success.",
+      "Conducted in-depth market research to identify customer needs and industry trends, leveraging insights to develop innovative solutions and ensure competitive advantages in the market.",
     ],
   },
   {
