@@ -1,5 +1,5 @@
-import React, {useState, useRef} from 'react'
-import styled from 'styled-components'
+import React, { useState, useRef } from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -8,12 +8,10 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
-  Drawer
+  Drawer,
 } from "@mui/material";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiChevronDown } from "react-icons/fi";
-
-
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -27,9 +25,7 @@ export default function Navbar() {
     e.stopPropagation();
     setProjectsOpen((prevState) => !prevState);
   };
-  
 
-  
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
@@ -67,7 +63,7 @@ export default function Navbar() {
                 },
               }}
             />
-            <FiChevronDown/>
+            <FiChevronDown />
           </ListItemButton>
         </ListItem>
         {projectsOpen && (
@@ -75,31 +71,47 @@ export default function Navbar() {
             <List>
               <ListItem disablePadding>
                 <ListItemButton>
-                  <Link
-                    to="/freelance-projects"
-                    
-                  >
-                    <ListItemText primary="Freelancing" sx={{
-                      "& .MuiTypography-root": {
-                        color: "var(--background-color-dark)",
-                        fontFamily: "Poppins, sans-serif",
-                      },
-                    }} />
+                  <Link to="/freelance-projects">
+                    <ListItemText
+                      primary="Freelancing"
+                      sx={{
+                        "& .MuiTypography-root": {
+                          color: "var(--background-color-dark)",
+                          fontFamily: "Poppins, sans-serif",
+                        },
+                      }}
+                    />
                   </Link>
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton>
-                  <Link
-                    to="/outlet-projects"
-                    
-                  >
-                    <ListItemText primary="Outlet" sx={{
-                      "& .MuiTypography-root": {
-                        color: "var(--background-color-dark)",
-                        fontFamily: "Poppins, sans-serif",
-                      },
-                    }} />
+                  <Link to="/outlet-projects">
+                    <ListItemText
+                      primary="Outlet"
+                      sx={{
+                        "& .MuiTypography-root": {
+                          color: "var(--background-color-dark)",
+                          fontFamily: "Poppins, sans-serif",
+                        },
+                      }}
+                    />
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <Link to="/entrepreneurship">
+                    <ListItemText
+                      primary="Entrepreneurship"
+                      sx={{
+                        "& .MuiTypography-root": {
+                          color: "var(--background-color-dark)",
+                          fontFamily: "Poppins, sans-serif",
+                        },
+                      }}
+                    />
                   </Link>
                 </ListItemButton>
               </ListItem>
@@ -155,8 +167,6 @@ export default function Navbar() {
     </Box>
   );
 
-
-  
   return (
     <>
       <StyledNavbar>
@@ -186,18 +196,19 @@ export default function Navbar() {
           </div> */}
 
           <div className="navbar_container">
-            <Link to="/">Home</Link>
+            <Link to="/" className="links">Home</Link>
 
             <div class="dropdown">
               <a class="dropbtn">Projects</a>
               <div class="dropdown-content">
                 <Link to="/freelance-projects">Freelancing</Link>
                 <Link to="/outlet-projects">Outlet</Link>
+                <Link to="/Entrepreneurship">Entrepreneurship</Link>
               </div>
             </div>
 
-            <Link to="/experience">Experience</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/experience" className="links">Experience</Link>
+            <Link to="/contact" className="links">Contact</Link>
           </div>
         </div>
 
@@ -215,14 +226,12 @@ export default function Navbar() {
   );
 }
 
-
 const StyledNavbar = styled.div`
   /* max-height: 10vh; */
   /* margin-top: 2%; */
- 
 
   .main_navbar {
-    background-color: var(--background-color-light);
+    /* background-color: var(--background-color-light); */
     border-radius: var(--l-radius);
     padding: 0 20px;
 
@@ -245,9 +254,19 @@ const StyledNavbar = styled.div`
         /* background-color: #4caf50; */
         color: white;
         padding: 16px;
-        font-size: 16px;
+        /* font-size: 16px; */
         border: none;
         cursor: pointer;
+
+        &:hover{
+          color: var( --primary-color);
+        }
+      }
+
+      .links{
+          &:hover{
+          color: var( --primary-color);
+        }
       }
 
       .dropdown {
@@ -258,15 +277,18 @@ const StyledNavbar = styled.div`
       .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
+        /* background-color: #f9f9f9; */
+        background-color: var(--background-color-light);
         min-width: 160px;
+        margin-left: -30px;
+        margin-top: 16px;
         border-radius: var(--m-radius);
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
       }
 
       .dropdown-content a {
-        color: black;
+        color: white;
         padding: 12px 16px;
         text-decoration: none;
         border-radius: var(--s-radius);
@@ -274,7 +296,7 @@ const StyledNavbar = styled.div`
       }
 
       .dropdown-content a:hover {
-        background-color: #f1f1f1;
+        background-color: var(--background-color-light);
       }
 
       .dropdown:hover .dropdown-content {
@@ -322,23 +344,59 @@ const StyledNavbar = styled.div`
 
   body.light-mode & {
     .main_navbar {
-      background-color: var(--light-gray-color);
-       a {
+      /* background-color: var(--light-gray-color); */
+      background: #e3edf7;
+      box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
+      a {
         color: black;
       }
-       .dropbtn{
+      .dropbtn {
         color: black;
-       }
+         &:hover{
+          color: var( --light-blue-color);
+        }
+      }
+
+       .links{
+          &:hover{
+          color: var( --light-blue-color);
+        }
+      }
 
       .dropdown-content {
-        background-color: var(--light-gray-color);
+        /* background-color: var(--light-gray-color); */
+        background: #e3edf7;
+        box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
+        /* box-shadow: 0 20px 60px #c1c9d2, 0 -20px 60px #ffffff; */
       }
-      /* .dropdown-content a {
-        color: white;
-      } */
+      .dropdown-content a {
+        color: black;
+      }
 
       .dropdown-content a:hover {
         background-color: var(--light-blue-color);
+      }
+    }
+  }
+
+  body.dark-mode &{
+    .main_navbar{
+        background: linear-gradient(
+        to right,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      .dropdown-content {
+        background: linear-gradient(
+        to right,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      }
+      .dropdown-content a:hover {
+        background-color: var(--primary-color);
       }
     }
   }

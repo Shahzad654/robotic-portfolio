@@ -10,7 +10,7 @@ export default function OutletProjectModal({ backdropHandler, project }) {
       <div className="heading">
         <h4>{project.title}</h4>
         <button className="icon" onClick={backdropHandler}>
-          <CloseIcon htmlColor="var(--primary-color)" fontSize="large" className='close-icon'/>
+          <CloseIcon htmlColor="var(--primary-color)" fontSize="large" className='close-icon' />
         </button>
       </div>
 

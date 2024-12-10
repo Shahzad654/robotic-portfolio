@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+
 export default function Contact() {
+  
   return (
     <StyledContact
       whileInView={{ y: 0, opacity: 1 }}
@@ -10,6 +12,8 @@ export default function Contact() {
       transition={{ duration: 1, delay: 0.3 }}
       viewport={{ once: true }}
     >
+
+
       <div className="main_contact">
         <h1>
           LET'S WORK <span>TOGETHER</span>
@@ -28,6 +32,7 @@ export default function Contact() {
           <button>Submit</button>
         </form>
       </div>
+
     </StyledContact>
   );
 }
@@ -49,7 +54,6 @@ const StyledContact = styled(motion.div)`
         font-size: var(--xl-heading);
         font-weight: 600;
         line-height: 1;
-
       }
     }
 
@@ -104,57 +108,51 @@ const StyledContact = styled(motion.div)`
         button {
           width: 70%;
         }
-        
       }
     }
   }
 
   body.light-mode & {
-     
     .main_contact {
       h1 {
-
-      span {
-       color: var(--light-gray-color);
+        span {
+          color: var(--light-gray-color);
+        }
       }
-    }
-      
+
       form {
         input,
         textarea {
-          /* background-color: var(--light-gray-color); */
           color: black;
-           background-color: var(--light-gray-color);
-
         }
 
-        input:placeholder{
-           color: black;
+        input:placeholder {
+          color: black;
         }
 
-        input:focus, textarea:focus {
-  border-color: var(--light-blue-color);
-}
+        input:focus,
+        textarea:focus {
+          border-color: var(--light-blue-color);
+        }
 
-        
-         button {
-          background-color: var( --light-blue-color);
-        /* &:hover {
-          background-color: var(--light-gray-color);
-        } */
-      }
-    }
-  }
-
-  body.dark-mode & {
-    .main_contact {
-      form {
-        input,
-        textarea {
-          background-color: var(--background-color-light);
+        button {
+          background-color: var(--light-blue-color);
+          &:hover {
+          background-color: var(--blue-color-dark);
+        }
         }
       }
     }
+
+    body.dark-mode & {
+      .main_contact {
+        form {
+          input,
+          textarea {
+            background-color: var(--background-color-light);
+          }
+        }
+      }
+    }
   }
-}
 `;

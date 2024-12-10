@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { PopupWidget } from "react-calendly";
 
 export default function Services() {
+  const [calendlyUrl, setCalendlyUrl] = useState(null);
+
+  const handleCalendly = (url) => {
+    setCalendlyUrl(url);
+  };
+
+  const closePopup = () => {
+    setCalendlyUrl(null);
+  };
+
   return (
     <StyledService
       whileInView={{ y: 0, opacity: 1 }}
@@ -26,7 +37,11 @@ export default function Services() {
             <li>Blueprint to Build</li>
             <li>Vision to Execution</li>
           </ul>
-          <button>Buy Now</button>
+          <button
+            onClick={() => handleCalendly("https://calendly.com/shahzadj2001")}
+          >
+            Buy Now
+          </button>
         </motion.div>
 
         <motion.div
@@ -43,7 +58,11 @@ export default function Services() {
             <li>Workflow Strategies</li>
             <li>Actionable Next Steps</li>
           </ul>
-          <button>Buy Now</button>
+          <button
+            onClick={() => handleCalendly("https://calendly.com/shahzadj2001")}
+          >
+            Buy Now
+          </button>
         </motion.div>
 
         <motion.div
@@ -60,9 +79,22 @@ export default function Services() {
             <li>Unlock Your Potential</li>
             <li>Learn and Evolve</li>
           </ul>
-          <button>Buy Now</button>
+          <button
+            onClick={() => handleCalendly("https://calendly.com/shahzadj2001")}
+          >
+            Buy Now
+          </button>
         </motion.div>
       </div>
+
+      {/* {calendlyUrl && (
+        <PopupWidget
+          url={calendlyUrl}
+          rootElement={document.getElementById("root")}
+          onModalClose={closePopup}
+          
+        />
+      )} */}
     </StyledService>
   );
 }
@@ -79,7 +111,8 @@ const StyledService = styled(motion.div)`
 
   .services_cards {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
@@ -87,9 +120,10 @@ const StyledService = styled(motion.div)`
       width: 300px;
       height: 400px;
       /* background-color: var(--background-color-light); */
-       background: #1E3A8A99;
-box-shadow:  -20px -20px 60px #1a317580,
-             20px 20px 60px white;
+      /* background: #1e3a8a99;
+      box-shadow: -20px -20px 60px #1a317580, 20px 20px 60px white; */
+      /* background: #e3edf7;
+      box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff; */
 
       border-radius: var(--l-radius);
       display: flex;
@@ -123,10 +157,10 @@ box-shadow:  -20px -20px 60px #1a317580,
     width: 300px;
     height: 450px;
     /* background-color: var(--background-color-light); */
-    background: #1E3A8A99;
-box-shadow:  -20px -20px 60px #1a317580,
-             20px 20px 60px white;
-
+    /* background: #1e3a8a99;
+    box-shadow: -20px -20px 60px #1a317580, 20px 20px 60px white; */
+    /* background: #e3edf7;
+    box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff; */
 
     border-radius: var(--l-radius);
     display: flex;
@@ -157,11 +191,9 @@ box-shadow:  -20px -20px 60px #1a317580,
   }
 
   @media (max-width: 1024px) {
-   
-      h1 {
-        text-align: center;
-      }
- 
+    h1 {
+      text-align: center;
+    }
   }
 
   @media (max-width: 640px) {
@@ -178,6 +210,7 @@ box-shadow:  -20px -20px 60px #1a317580,
 
   @media (max-width: 1200px) {
     .services_cards {
+      justify-content: center;
       .cards_center {
         height: 400px;
       }
@@ -187,53 +220,80 @@ box-shadow:  -20px -20px 60px #1a317580,
   body.light-mode & {
     .services_cards {
       .cards {
-        background-color: var(--light-gray-color);
-          h4,
-    h2 {
-      color: black;
-    }
-    ul {
-      li {
-        color: black;
-       
-      }
-    }
-    button{
-     background-color: var(--light-blue-color);
-    }
+        /* background-color: var(--light-gray-color); */
+        background: #e3edf7;
+        box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
+        h4,
+        h2 {
+          color: black;
+        }
+        ul {
+          li {
+            color: black;
+          }
+        }
+        button {
+          background-color: var(--light-blue-color);
+          &:hover {
+            background-color: var(--blue-color-dark);
+          }
+        }
       }
       .cards_center {
-        background-color: var(--light-gray-color);
-          h4,
-    h2 {
-      color: black;
-    }
-    ul {
-      li {
-        color: black;
-       
+        /* background-color: var(--light-gray-color); */
+        background: #e3edf7;
+        box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
+        h4,
+        h2 {
+          color: black;
+        }
+        ul {
+          li {
+            color: black;
+          }
+        }
+        button {
+          background-color: var(--light-blue-color);
+          &:hover {
+            background-color: var(--blue-color-dark);
+          }
+        }
       }
     }
-    button{
-     background-color: var(--light-blue-color);
-    }
-      }
-    }
-
   }
 
   body.dark-mode & {
     .cards {
       /* background-color: var(--background-color-light); */
-      background: #FFFFFF08;
-box-shadow:  -20px -20px 60px #ffffff02,
-             20px 20px 60px #ffffff02;
+      /* background: #ffffff08;
+      box-shadow: -20px -20px 60px #ffffff02, 20px 20px 60px #ffffff02; */
+      background: linear-gradient(
+        to right,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      ul {
+          li {
+            color: white;
+          }
+        }
     }
     .cards_center {
       /* background-color: var(--background-color-light); */
-      background: #FFFFFF08;
-      box-shadow:  -20px -20px 60px #ffffff02,
-             20px 20px 60px #ffffff02;
+      /* background: #ffffff08;
+      box-shadow: -20px -20px 60px #ffffff02, 20px 20px 60px #ffffff02; */
+      background: linear-gradient(
+        to right,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      ul {
+          li {
+            color: white;
+          }
+        }
     }
   }
 `;

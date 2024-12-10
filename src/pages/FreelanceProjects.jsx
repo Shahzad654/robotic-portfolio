@@ -5,8 +5,7 @@ import ProjectModal from "../components/modals/ProjectModal";
 import BackdropWrapper from "../components/modals/BackdropWrapper";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import {projectDetails} from "../Projects";
-
+import { projectDetails } from "../Projects";
 
 export default function FreelanceProjects() {
   const [backdrop, setBackdrop] = useState(false);
@@ -72,7 +71,8 @@ export default function FreelanceProjects() {
 const StyledProjects = styled(motion.div)`
   width: 80%;
   margin: var(--section-margin) auto;
-  height: max-content;
+  /* height: max-content; */
+  height: 110vh;
   .main_projects {
     h1 {
       font-size: var(--xl-heading);
@@ -92,7 +92,6 @@ const StyledProjects = styled(motion.div)`
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-
       gap: 2rem;
 
       .card {
@@ -106,7 +105,7 @@ const StyledProjects = styled(motion.div)`
 
         flex-direction: column;
         gap: 1rem;
-        background-color: var(--background-color-light);
+        /* background-color: var(--background-color-light); */
         cursor: pointer;
 
         img {
@@ -152,6 +151,7 @@ const StyledProjects = styled(motion.div)`
   }
 
   @media (max-width: 640px) {
+    height: 130vh;
     .main_projects {
       h1 {
         text-align: center;
@@ -159,25 +159,41 @@ const StyledProjects = styled(motion.div)`
     }
   }
 
-  body.light-mode & {
+  body.dark-mode & {
     .main_projects{
-      h1{
-        span{
-          color:var( --light-gray-color);
+      .project_cards{
+        .card{
+          background: linear-gradient(
+        to left,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+        }
+      }
+    }
+  }
+
+  body.light-mode & {
+    .main_projects {
+      h1 {
+        span {
+          color: var(--light-gray-color);
         }
       }
     }
     .project_cards {
       .card {
-        background-color: var(--light-gray-color);
-         .content {
+        /* background-color: var(--light-gray-color); */
+        background: #e3edf7;
+        box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
+        .content {
           h4,
-        p {
-          color: black;
+          p {
+            color: black;
+          }
         }
       }
-      }
-     
     }
   }
 

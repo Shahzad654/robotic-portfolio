@@ -4,7 +4,6 @@ import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 export default function Publications() {
-  
   return (
     <>
       <StyledPublications
@@ -150,7 +149,13 @@ const StyledPublications = styled(motion.div)`
         gap: 2rem;
         padding-left: 2%;
         padding-right: 2%;
-        background-color: var(--background-color-light);
+        /* background-color: var(--background-color-light); */
+        background: linear-gradient(
+          to right,
+          var(--background-color-light),
+          #9e9fa0
+        );
+        box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
 
         .content {
           display: flex;
@@ -164,7 +169,7 @@ const StyledPublications = styled(motion.div)`
         .icon {
           width: 30px;
           height: 30px;
-          color: var(--primary-color);
+          color: var(--primary-color-light);
         }
       }
     }
@@ -189,17 +194,22 @@ const StyledPublications = styled(motion.div)`
   body.light-mode & {
     .experience_cards {
       .card {
-        background-color: var(--light-gray-color);
+        /* background-color: var(--light-gray-color); */
+        background: linear-gradient(
+          to right,
+          var(--background-color-light-mode),
+          #fdfeff
+        );
+        box-shadow: 20px 20px 60px #c1c9d2 -20px -20px 60px #ffffff;
         .content {
-          ul{
-            li{
+          ul {
+            li {
               color: black;
             }
-            
           }
         }
-         .icon {
-          color: var( --light-blue-color);
+        .icon {
+          color: var(--light-blue-color);
         }
       }
     }
@@ -212,11 +222,10 @@ const StyledPublications = styled(motion.div)`
           p {
             color: var(--text-light-color);
           }
-          ul{
-            li{
+          ul {
+            li {
               color: white;
             }
-            
           }
         }
       }

@@ -22,9 +22,9 @@ const StyledFooter = styled.div`
   }
 
   body.light-mode & {
-     background-color: var( --light-gray-color);
+     background-color: var(--light-blue-color);
     p {
-      color: black;
+      color: white;
     }
   }
 

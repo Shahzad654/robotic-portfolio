@@ -92,7 +92,6 @@ const StyledProjects = styled(motion.div)`
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-
       gap: 2rem;
 
       .card {
@@ -105,7 +104,7 @@ const StyledProjects = styled(motion.div)`
         align-items: center; */
         flex-direction: column;
         gap: 1rem;
-        background-color: var(--background-color-light);
+        /* background-color: var(--background-color-light); */
         cursor: pointer;
 
         img {
@@ -136,6 +135,7 @@ const StyledProjects = styled(motion.div)`
 
           p {
             text-align: center;
+            padding: 0 2% 0 2%;
           }
         }
       }
@@ -159,23 +159,41 @@ const StyledProjects = styled(motion.div)`
   }
 
   body.light-mode & {
-    .main_projects{
-      h1{
-        span{
-          color:var( --light-gray-color);
+    .main_projects {
+      h1 {
+        span {
+          color: var(--light-gray-color);
         }
       }
     }
     .project_cards {
       .card {
-        background-color: var(--light-gray-color);
+        /* background-color: var(--light-gray-color); */
+        background: #e3edf7;
+        box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
         .content {
-        h4,p {
-          color: black;
+          h4,
+          p {
+            color: black;
+          }
         }
       }
+    }
+  }
+
+
+  body.dark-mode & {
+     .main_projects{
+      .project_cards{
+        .card{
+          background: linear-gradient(
+        to left,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+        }
       }
-      
     }
   }
 `;

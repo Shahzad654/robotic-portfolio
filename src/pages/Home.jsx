@@ -12,38 +12,48 @@ export default function Home() {
       transition={{ duration: 1, delay: 0.3 }}
     >
       <div className="main_home">
-        <h1>
+        <motion.h1 
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          >
           MECHANICAL <span>ENGINEER</span>
-        </h1>
+        </motion.h1>
 
-        <p>
+        <motion.p 
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.7 }}
+          >
           Passionate about creating intuitive and engaging user experiences.
           Specialize in transforming ideas into beautifully crafted products.
-        </p>
+        </motion.p>
 
-        <div className="stats">
+        <motion.div className="stats" initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.9 }}>
           <div className="experience">
             {/* <h1>+4</h1> */}
             <h1>
-              +<CountUp start={0} end={4} duration={2} delay={0.3} className="count-up" />
+              +<CountUp start={0} end={4} duration={4} delay={0.3} className="count-up" />
             </h1>
             <p>YEARS OF EXPERIENCE</p>
           </div>
 
           <div className="projects">
             <h1>
-              +<CountUp start={0} end={46} duration={2} delay={0.3} className="count-up" />
+              +<CountUp start={0} end={46} duration={4} delay={0.3} className="count-up" />
             </h1>
             <p>PROJECTS COMPLETED</p>
           </div>
 
           <div className="experience">
             <h1>
-              +<CountUp start={0} end={20} duration={2} delay={0.3} className="count-up" />
+              +<CountUp start={0} end={20} duration={4} delay={0.3} className="count-up" />
             </h1>
             <p>WORLDWIDE CLIENTS</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </StyledHome>
   );
@@ -125,7 +135,7 @@ const StyledHome = styled(motion.div)`
     .main_home {
        h1{
         span{
-          color:var( --light-gray-color);
+          color:var( --light-blue-color);
         }
       }
       p {

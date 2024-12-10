@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import BackdropWrapper from "../components/modals/BackdropWrapper";
 import ExperienceModal from "../components/modals/ExperienceModal";
 import { FaArrowRight } from "react-icons/fa6";
@@ -75,7 +74,7 @@ export default function Experience() {
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
                 initial={{ y: -20, opacity: 0 }}
-               transition={{ duration: 1, delay: 0.3 }}
+                transition={{ duration: 1, delay: 0.3 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(experience)}
               >
@@ -87,10 +86,10 @@ export default function Experience() {
             ))}
 
             <motion.button
-                whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: -20, opacity: 0 }}
-                transition={{ duration: 1, delay: 0.2 + 0.4 }}
-                viewport={{ once: true }}
+              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ y: -20, opacity: 0 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
+              viewport={{ once: true }}
               onClick={() => {
                 navigate("/experience");
               }}
@@ -136,19 +135,24 @@ const StyledExperience = styled(motion.div)`
         height: 150px;
         border-radius: var(--m-radius);
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 2rem;
-        /* padding-left: 2%;
-        padding-right: 2%;
-        margin-bottom: 10%; */
-        background-color: var(--background-color-light);
+        padding-left: 2%;
+       
+        /* background-color: var(--background-color-light); */
+        background: linear-gradient(
+          to right,
+          var(--background-color-light),
+          #9e9fa0
+        );
+        box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
         cursor: pointer;
 
         .content {
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           flex-direction: column;
           gap: 1rem;
           /* padding-top: 5%;
@@ -157,7 +161,7 @@ const StyledExperience = styled(motion.div)`
 
           h3,
           h5 {
-            text-align: center;
+            /* text-align: center; */
           }
         }
 
@@ -175,9 +179,7 @@ const StyledExperience = styled(motion.div)`
       h1 {
         text-align: center;
       }
-      .experience_cards {
-        align-items: center;
-      }
+      
     }
   }
 
@@ -188,8 +190,15 @@ const StyledExperience = styled(motion.div)`
       }
       .experience_cards {
         align-items: center;
-        .cards {
-          .content {
+        .card {
+          justify-content: center;
+           padding-left: 0;
+          .content{
+            align-items: center;
+             h3,
+          h5 {
+            text-align: center;
+          }
           }
         }
       }
@@ -200,13 +209,16 @@ const StyledExperience = styled(motion.div)`
     .main_experience{
       h1{
         span{
-          color:var( --light-gray-color);
+         color:var( --light-blue-color);
         }
       }
     }
     .experience_cards {
       .card {
-        background-color: var(--light-gray-color);
+        /* background-color: var(--light-gray-color); */
+         background:
+                  linear-gradient(to right, var(--background-color-light-mode), #fdfeff);
+                box-shadow: 20px 20px 60px #c1c9d2 -20px -20px 60px #ffffff;
         .content {
           /* h3,
           h5 {
@@ -214,12 +226,13 @@ const StyledExperience = styled(motion.div)`
           } */
            
         }
+
       }
       button{
      background-color: var(--light-blue-color);
-     /* &:hover{
-       background-color: var(--light-gray-color);
-     } */
+     &:hover{
+       background-color: var(--blue-color-dark);
+     }
     }
     }
   }
@@ -228,7 +241,7 @@ const StyledExperience = styled(motion.div)`
     .experience_cards {
       .card {
         /* &:hover {
-          background-color: var(--background-color-light);
+          background-color: var(--primary-color-dark);
         } */
         .content {
           p {
@@ -236,6 +249,11 @@ const StyledExperience = styled(motion.div)`
           }
         }
       }
+       button{
+     &:hover{
+       background-color: var(--primary-color-dark);
+     }
+    }
     }
   }
 `;

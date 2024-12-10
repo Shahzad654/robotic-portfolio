@@ -25,7 +25,7 @@
     0.2);
   --background-color-dark: #151312;
   --heading-color: rgba(182, 180, 189, 0.2);
-  --primary-color: #E94C4F;
+  --primary-color: #A03232;
   --primary-color-dark: #8b2a2a;
   --primary-color-light: #ac4945;
   --secondary-color: #f9ad3e;
@@ -43,10 +43,13 @@
   --border-color: #c6c6c6;
 
   --gray-color: #9f9f9fdd;
-  /* --light-gray-color: #d2d2d2dd; */
-  --light-gray-color: rgba(30, 58, 138, 0.3);
+
+  --background-color-light-mode: #e3edf7;
+  /* --light-gray-color: rgba(30, 58, 138, 0.3); */
+  --light-gray-color: rgb(30, 58, 138);
   --light-blue-color: rgb(37 99 235);
-  --blue-color: #1976d2;
+  --background-color-light: #e3edf7;
+  --blue-color-dark: #193177;
   --blue-dark-color: #1168be;
   --green-dark-color: #85ce33;
   --green-color: #93c65a;
@@ -77,20 +80,24 @@
     --text-light-color: #72767E;
     --text-white-color: white;
     --primary-color: #A03232;
+    --primary-color-dark: #8b2a2a;
+    --primary-color-light: #ac4945;
   }
 }
 
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background-color-light: rgb(255, 248, 248);
-    --background-color-dark: #ffffff;
+    /* --background-color-light: rgb(255, 248, 248);
+    --background-color-dark: #ffffff; */
+    --background-color-light-mode: #e3edf7;
     --text-color: #333;
     --text-light-color: #555;
     --text-white-color: #000;
-    --primary-color: #ff5722;
-    --primary-color-dark: #e64a19;
-    --primary-color-light: #ff8a65;
+   
+    --light-gray-color: rgba(30, 58, 138, 0.3);
+    --light-blue-color: rgb(37 99 235);
+    --blue-color-dark: #193177;
   }
 }
 
@@ -135,6 +142,10 @@ body.dark-mode span {
 body.dark-mode {
   background-color: var(--background-color-dark);
   color: white;
+}
+
+body.light-mode{
+  background-color: var(--background-color-light-mode);
 }
 
 
@@ -209,7 +220,7 @@ button {
   outline: none;
   color: var(--text-white-color);
   transition: all 0.15s ease-in-out;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-light);
   border-radius: var(--s-radius);
   padding: 10px 16px;
   min-width: 120px;
@@ -327,7 +338,11 @@ svg:hover {
   justify-content: center;
   text-align: center;
 }
-
+@media (min-width: 600px) and (max-width: 870px){
+  :root{
+      --xl-heading: 3.5rem;
+  }
+}
 @media (max-width: 600px) {
   :root {
     --section-margin: 50px;

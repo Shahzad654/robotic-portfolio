@@ -7,7 +7,6 @@ import ExperienceModal from "../components/modals/ExperienceModal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-
 const experienceDetails = [
   {
     title: "ANA Avatar Xprize Team (AVATAR-HUBO)",
@@ -81,7 +80,7 @@ export default function ExperiencePage() {
         }
         open={backdrop}
       />
-      <Navbar/>
+      <Navbar />
       <StyledExperience
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: -50, opacity: 0 }}
@@ -111,12 +110,10 @@ export default function ExperiencePage() {
                 </div>
               </motion.div>
             ))}
-
-            
           </div>
         </div>
       </StyledExperience>
-      <Footer/>
+      <Footer />
     </>
   );
 }
@@ -124,6 +121,7 @@ export default function ExperiencePage() {
 const StyledExperience = styled(motion.div)`
   width: 80%;
   margin: var(--section-margin) auto;
+  
 
   .main_experience {
     h1 {
@@ -155,7 +153,7 @@ const StyledExperience = styled(motion.div)`
         justify-content: flex-start;
         align-items: center;
         gap: 2rem;
-        background-color: var(--background-color-light);
+        /* background-color: var(--background-color-light); */
         cursor: pointer;
 
         .content {
@@ -195,18 +193,25 @@ const StyledExperience = styled(motion.div)`
   }
 
   body.light-mode & {
-    .main_experience{
-      h1{
-        span{
-          color:var( --light-gray-color);
+    .main_experience {
+      h1 {
+        span {
+          color: var(--light-gray-color);
         }
       }
     }
     .experience_cards {
       .card {
-        background-color: var(--light-gray-color);
+        /* background-color: var(--light-gray-color); */
+        background: linear-gradient(
+          to right,
+          var(--background-color-light-mode),
+          #fdfeff
+        );
+        box-shadow: 20px 20px 60px #c1c9d2 -20px -20px 60px #ffffff;
         .content {
-          h3,h5 {
+          h3,
+          h5 {
             color: black;
           }
         }
@@ -217,6 +222,12 @@ const StyledExperience = styled(motion.div)`
   body.dark-mode & {
     .experience_cards {
       .card {
+        background: linear-gradient(
+        to right,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
         .content {
           p {
             color: var(--text-light-color);

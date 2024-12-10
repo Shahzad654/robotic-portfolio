@@ -23,8 +23,4 @@ const MainPageStyled = styled.div`
   gap: 2rem;
   flex-direction: column;
   overflow: hidden;
-
-  @media (max-width: 640px) {
-    /* align-items: center; */
-  }
 `;

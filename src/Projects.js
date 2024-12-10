@@ -18,16 +18,16 @@ const projectDetails = [
     image: ProjectImg,
     video: "https://www.youtube.com/embed/eGAg2fmg6bo?si=NbGxnl8nZ1iBa7Rd",
   },
-  {
-    title: "AlphaCore Turbulence",
-    role: "System Designer and Integrator",
-    description: [
-      "Designed core systems and architectures to support the project's complex requirements.",
-      "Integrated various components to ensure high performance and reliability.",
-    ],
-    members: "Aksahy, Sirah",
-    image: ProjectImg,
-  },
+  // {
+  //   title: "AlphaCore Turbulence",
+  //   role: "System Designer and Integrator",
+  //   description: [
+  //     "Designed core systems and architectures to support the project's complex requirements.",
+  //     "Integrated various components to ensure high performance and reliability.",
+  //   ],
+  //   members: "Aksahy, Sirah",
+  //   image: ProjectImg,
+  // },
   {
     title: "Node-Cloud",
     role: "DevOps Engineer",

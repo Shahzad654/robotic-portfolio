@@ -11,11 +11,13 @@ const projectDetails = [
     title: "Hand Crafted Notes",
     role: "System Designer, Integrator and Technology lead",
     description: [
-      "Led the system design and integration of a personalized note-taking platform.",
-      "Oversaw technology decisions to ensure seamless performance and scalability.",
+      "I had the privilege of collaborating with HandCraftedNotes, an innovative startup aiming to revolutionize the way businesses engage with their clients. ",
+      "As the Lead Engineer, I was entrusted with designing the overall system architecture and spearheading the development of cutting-edge automated machines. ",
     ],
-    members: "Aksahy, Sirah",
+    skill: "Leadership, Embedded System, Raspberry Pi, Python, Networking",
+    members: "Hardware Support: Jason, Software Support: Prabhas ",
     image: ProjectImg1,
+    video: "https://www.youtube.com/embed/eGAg2fmg6bo?si=NbGxnl8nZ1iBa7Rd",
   },
   {
     title: "Home Lab",
@@ -23,9 +25,7 @@ const projectDetails = [
     description:
       "A compact home lab server rack with servers, networking hardware, and organized cabling, ideal for experimenting with virtualization, networking, and IT solutions.",
     image: ProjectImg4,
-    members: "Aksahy, Sirah",
   },
-  
 ];
 
 export default function Projects() {
@@ -68,7 +68,7 @@ export default function Projects() {
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
                 initial={{ y: -20, opacity: 0 }}
-                transition={{ duration: 1, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(project)}
               >
@@ -106,7 +106,6 @@ const StyledProjects = styled(motion.div)`
     }
 
     .project_cards {
-   
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -116,7 +115,7 @@ const StyledProjects = styled(motion.div)`
       .card {
         width: 100%;
         height: 160px;
-         box-sizing: border-box;
+        box-sizing: border-box;
         /* height: min-content; */
         border-radius: var(--m-radius);
         display: flex;
@@ -124,7 +123,13 @@ const StyledProjects = styled(motion.div)`
         align-items: center;
         gap: 1rem;
         padding-left: 2%;
-        background-color: var(--background-color-light);
+        /* background-color: var(--background-color-light); */
+        background: linear-gradient(
+          to right,
+          var(--background-color-light),
+          #9e9fa0
+        );
+        box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
         cursor: pointer;
 
         .image_container {
@@ -173,52 +178,49 @@ const StyledProjects = styled(motion.div)`
       }
     }
   }
-
+  /* 
   @media (max-width: 640px) {
     .main_projects {
       h1 {
         text-align: center;
       }
+
+     
     }
-  }
+  } */
 
   body.light-mode & {
-    .main_projects{
-      h1{
-        span{
-          color:var( --light-gray-color);
+    .main_projects {
+      h1 {
+        span {
+          color: var(--light-blue-color);
         }
       }
-    }
-    .project_cards {
-      .card {
-        background-color: var(--light-gray-color);
-
-        .content {
-          /* h3 {
-            color: white;
-            
-          }
-          p {
-             color: white;
-          } */
+      .project_cards {
+        .card {
+          background: linear-gradient(
+            to right,
+            var(--background-color-light-mode),
+            #fdfeff
+          );
+          box-shadow: 20px 20px 60px #c1c9d2 -20px -20px 60px #ffffff;
         }
       }
     }
   }
 
-  /* body.dark-mode & {
+  body.dark-mode & {
     .project_cards {
       .card {
-        &:hover {
+        /* &:hover {
           background-color: var(--background-color-light);
-        }
+        } */
       }
-      .content {
+      /* .content {
         p {
           color: var(--text-light-color);
         }
-      }
+      } */
     }
-  } */
+  }
 `;

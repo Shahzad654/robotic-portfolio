@@ -47,10 +47,12 @@ const StyledButton = styled.div`
   .switch__label {
     position: relative;
     display: inline-block;
-    width: 120px;
-    height: 60px;
+    /* width: 120px;
+    height: 60px; */
+    width: 75px;
+    height: 40px;
     background-color: #2b2b2b;
-    border: 5px solid #5b5b5b;
+    border: 2px solid #5b5b5b;
     border-radius: 9999px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
@@ -62,8 +64,8 @@ const StyledButton = styled.div`
     left: 50%;
     transform: translate(-50%, -50%) translateX(-72%);
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     background-color: #7b7b7b;
     border-radius: 9999px;
     box-shadow: 10px 0px 0 0 rgba(#000000, 0.2) inset;

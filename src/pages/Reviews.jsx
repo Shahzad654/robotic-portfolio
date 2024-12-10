@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function Reviews() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-   const [value, setValue] = useState(5);
+  const [value, setValue] = useState(5);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -22,16 +22,18 @@ export default function Reviews() {
 
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 4000); 
+    }, 4000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, [emblaApi]);
 
   return (
-    <StyledReviews  whileInView={{ y: 0, opacity: 1 }}
+    <StyledReviews
+      whileInView={{ y: 0, opacity: 1 }}
       initial={{ y: -50, opacity: 0 }}
       transition={{ duration: 1, delay: 0.3 }}
-      viewport={{ once: true }}>
+      viewport={{ once: true }}
+    >
       <h1>Reviews</h1>
       <div className="slider_container">
         <div className="embla" ref={emblaRef}>
@@ -170,13 +172,17 @@ const StyledReviews = styled(motion.div)`
       margin-top: 5rem;
       .prev,
       .next {
-        background-color: var(--primary-color);
+        background-color: var(--primary-color-light);
         border-radius: 50%;
         width: 35px;
         height: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
+
+         &:hover{
+            background-color: var(--primary-color-dark);
+          }
         .icon {
           display: flex;
           justify-content: center;
@@ -190,35 +196,37 @@ const StyledReviews = styled(motion.div)`
     }
   }
 
-    body.light-mode &{
-      .slider_container {
-        .controls{
-          .prev,
-      .next{
-background-color: var( --light-blue-color);
-      }
+  body.light-mode & {
+    .slider_container {
+      .controls {
+        .prev,
+        .next {
+          background-color: var(--light-blue-color);
           
+
+          &:hover{
+            background-color: var(--blue-color-dark);
+          }
         }
       }
     }
+  }
 
   @media (max-width: 1024px) {
-  
-      h1 {
-        text-align: center;
+    h1 {
+      text-align: center;
+    }
+
+    .slider_container {
+      .embla__slide {
+        align-items: center;
       }
 
-      .slider_container{
-        .embla__slide{
-          align-items: center;
-        }
-
-          .controls{
-            justify-content: center;
-            align-items: center;
-          }
+      .controls {
+        justify-content: center;
+        align-items: center;
       }
- 
+    }
   }
 
   @media (max-width: 640px) {

@@ -7,6 +7,7 @@ import OutletProjects from "./pages/OutletProjects";
 import ExperiencePage from "./pages/ExperiencePage";
 import ContactPage from "./pages/ContactPage";
 import ThemeButton from "./components/ThemeButton";
+import Entrepreneurship from "./pages/Entrepreneurship";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/outlet-projects" element={<OutletProjects />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/entrepreneurship" element={<Entrepreneurship/> } />
         </Routes>
       </BrowserRouter>
     </>

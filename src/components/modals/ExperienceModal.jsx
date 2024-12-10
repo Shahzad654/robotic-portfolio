@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function ExperienceModal({ backdropHandler, experience }) {
-     if (!experience) return null;
+  if (!experience) return null;
   return (
     <StyledExperience>
       <div className="heading">
         <h4>{experience.title}</h4>
         <button className="icon" onClick={backdropHandler}>
-          <CloseIcon htmlColor="var(--primary-color)" fontSize="large" className='close-icon'/>
+          <CloseIcon htmlColor="var(--primary-color)" fontSize="large" className='close-icon' />
         </button>
       </div>
 

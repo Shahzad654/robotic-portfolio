@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import ProfileImg from '../assets/profile.jpeg'
+import React from "react";
+import styled from "styled-components";
+import ProfileImg from "../assets/profile.jpeg";
 import { BsTwitterX } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
@@ -11,12 +11,21 @@ export default function ProfileCard() {
   return (
     <>
       <StyledProfile
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
+        // initial={{ y: -50, opacity: 0 }}
+        // animate={{ y: 0, opacity: 1 }}
+        // transition={{ duration: 1 }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: "spring",
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
       >
         <div className="main_profile">
           <img src={ProfileImg} alt="" />
+
           <h2>Akshay Dave</h2>
           <p>
             A Mechanical Engineer who has developed countless innovative
@@ -69,6 +78,7 @@ const StyledProfile = styled(motion.div)`
       color: var(--background-color-dark);
       text-align: center;
       font-weight: 600;
+      padding: 0 4% 0 4%;
     }
 
     .icon_container {
@@ -77,7 +87,7 @@ const StyledProfile = styled(motion.div)`
       align-items: center;
       gap: 2rem;
       .icon {
-        color: var(--primary-color);
+        color: var(--primary-color-light);
         width: 22px;
         height: 22px;
         cursor: pointer;
@@ -86,28 +96,44 @@ const StyledProfile = styled(motion.div)`
   }
 
   body.dark-mode & {
-    background-color: white;
-    h2 {
-      color: var(--background-color-dark);
+   background: linear-gradient(
+        to left,
+        var(--background-color-light),
+        #9e9fa0
+      );
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+
+    .main_profile {
+      h2 {
+        color: white;
+      }
+      p {
+        color: white;
+      }
+
+    .icon_container {
+      .icon {
+
+        &:hover {
+          color: var(--primary-color-dark);
+        }
+      }
     }
-    p {
-      color: var(--text-light-color);
+      
     }
   }
 
   body.light-mode & {
-    background-color: var(--light-gray-color);
-    /* h2 {
-      color: white;
-    }
-
-    p {
-      color: white;
-    } */
+    background-color: var(--background-color-light-mode);
+    box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
 
     .icon_container {
       .icon {
         color: var(--light-blue-color);
+
+        &:hover {
+          color: var(--blue-color-dark);
+        }
       }
     }
   }
