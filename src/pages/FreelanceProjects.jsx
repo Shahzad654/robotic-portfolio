@@ -177,7 +177,7 @@ const StyledProjects = styled(motion.div)`
     .main_projects {
       h1 {
         span {
-          color: var(--light-gray-color);
+          color: var(--light-blue-color)
         }
       }
     }

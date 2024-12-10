@@ -145,7 +145,7 @@ const StyledExperience = styled(motion.div)`
     .main_experience {
       h1 {
         span {
-          color: var(--light-gray-color);
+           color: var(--light-blue-color)
         }
       }
     }

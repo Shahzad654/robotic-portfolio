@@ -116,7 +116,7 @@ const StyledContact = styled(motion.div)`
     .main_contact {
       h1 {
         span {
-          color: var(--light-gray-color);
+          color: var(--light-blue-color);
         }
       }
 
