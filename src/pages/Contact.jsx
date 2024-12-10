@@ -133,6 +133,7 @@ const StyledContact = styled(motion.div)`
         input:focus,
         textarea:focus {
           border-color: var(--light-blue-color);
+          outline-color: var(--light-blue-color);
         }
 
         button {

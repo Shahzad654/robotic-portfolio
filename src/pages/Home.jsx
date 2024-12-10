@@ -42,14 +42,14 @@ export default function Home() {
 
           <div className="projects">
             <h1>
-              +<CountUp start={0} end={46} duration={4} delay={0.3} className="count-up" />
+              +<CountUp start={0} end={12} duration={4} delay={0.3} className="count-up" />
             </h1>
             <p>PROJECTS COMPLETED</p>
           </div>
 
           <div className="experience">
             <h1>
-              +<CountUp start={0} end={20} duration={4} delay={0.3} className="count-up" />
+              +<CountUp start={0} end={10} duration={4} delay={0.3} className="count-up" />
             </h1>
             <p>WORLDWIDE CLIENTS</p>
           </div>

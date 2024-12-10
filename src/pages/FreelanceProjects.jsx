@@ -71,8 +71,8 @@ export default function FreelanceProjects() {
 const StyledProjects = styled(motion.div)`
   width: 80%;
   margin: var(--section-margin) auto;
-  /* height: max-content; */
-  height: 110vh;
+  height: max-content;
+  /* height: 100vh; */
   .main_projects {
     h1 {
       font-size: var(--xl-heading);
@@ -151,7 +151,6 @@ const StyledProjects = styled(motion.div)`
   }
 
   @media (max-width: 640px) {
-    height: 130vh;
     .main_projects {
       h1 {
         text-align: center;

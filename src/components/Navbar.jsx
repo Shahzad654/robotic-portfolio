@@ -73,7 +73,7 @@ export default function Navbar() {
                 <ListItemButton>
                   <Link to="/freelance-projects">
                     <ListItemText
-                      primary="Freelancing"
+                      primary="Freelance"
                       sx={{
                         "& .MuiTypography-root": {
                           color: "var(--background-color-dark)",
