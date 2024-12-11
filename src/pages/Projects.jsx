@@ -127,9 +127,9 @@ const StyledProjects = styled(motion.div)`
         background: linear-gradient(
           to right,
           var(--background-color-light),
-          #9e9fa0
+          #4e4e4e
         );
-        box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+        box-shadow: 20px 20px 60px #515152 -20px -20px 60px #424242;
         cursor: pointer;
 
         .image_container {

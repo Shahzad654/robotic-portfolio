@@ -1,18 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { PopupWidget } from "react-calendly";
+import IdeaRed from "../assets/idea red.svg";
+import IdeaBlue from "../assets/idea blue.svg";
+import ConsultRed from "../assets/consultred.svg";
+import ConsultBlue from "../assets/consultblue.svg";
+import MentorRed from "../assets/mentorred.svg";
+import MentorBlue from "../assets/mentorblue.svg";
 
 export default function Services() {
-  const [calendlyUrl, setCalendlyUrl] = useState(null);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  const handleCalendly = (url) => {
-    setCalendlyUrl(url);
-  };
+  useEffect(() => {
+    const checkTheme = () => {
+      if (document.body.classList.contains("dark-mode")) {
+        setIsDarkTheme(true);
+      } else {
+        setIsDarkTheme(false);
+      }
+    };
 
-  const closePopup = () => {
-    setCalendlyUrl(null);
-  };
+    checkTheme();
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <StyledService
@@ -30,6 +47,7 @@ export default function Services() {
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
         >
+          <img src={isDarkTheme ? IdeaRed : IdeaBlue} alt="Idea" />
           <h2>$199</h2>
           <h4>Bring your Idea to reality</h4>
           <ul>
@@ -37,11 +55,7 @@ export default function Services() {
             <li>Blueprint to Build</li>
             <li>Vision to Execution</li>
           </ul>
-          <button
-            onClick={() => handleCalendly("https://calendly.com/shahzadj2001")}
-          >
-            Buy Now
-          </button>
+          <button>Buy Now</button>
         </motion.div>
 
         <motion.div
@@ -51,6 +65,7 @@ export default function Services() {
           transition={{ duration: 1, delay: 0.6 }}
           viewport={{ once: true }}
         >
+          <img src={isDarkTheme ? ConsultRed : ConsultBlue} alt="Idea" />
           <h2>$399</h2>
           <h4>One hour Introductory Consulting</h4>
           <ul>
@@ -58,11 +73,7 @@ export default function Services() {
             <li>Workflow Strategies</li>
             <li>Actionable Next Steps</li>
           </ul>
-          <button
-            onClick={() => handleCalendly("https://calendly.com/shahzadj2001")}
-          >
-            Buy Now
-          </button>
+          <button>Buy Now</button>
         </motion.div>
 
         <motion.div
@@ -72,6 +83,7 @@ export default function Services() {
           transition={{ duration: 1, delay: 0.9 }}
           viewport={{ once: true }}
         >
+          <img src={isDarkTheme ? MentorRed : MentorBlue} alt="Idea" />
           <h2>$299</h2>
           <h4>Mentorship</h4>
           <ul>
@@ -79,22 +91,9 @@ export default function Services() {
             <li>Unlock Your Potential</li>
             <li>Learn and Evolve</li>
           </ul>
-          <button
-            onClick={() => handleCalendly("https://calendly.com/shahzadj2001")}
-          >
-            Buy Now
-          </button>
+          <button>Buy Now</button>
         </motion.div>
       </div>
-
-      {/* {calendlyUrl && (
-        <PopupWidget
-          url={calendlyUrl}
-          rootElement={document.getElementById("root")}
-          onModalClose={closePopup}
-          
-        />
-      )} */}
     </StyledService>
   );
 }
@@ -131,6 +130,13 @@ const StyledService = styled(motion.div)`
       align-items: center;
       gap: 1rem;
       flex-direction: column;
+      img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 28%;
+        height: auto;
+      }
 
       h4,
       h2 {
@@ -138,12 +144,29 @@ const StyledService = styled(motion.div)`
         word-wrap: break-word;
         text-align: center;
       }
-      ul {
-        li {
-          list-style-type: circle;
-          /* color: white; */
-          text-align: start;
+      /* ul {
+        list-style: none;
+        li::marker {
+          content: "✓"; 
+         margin-right: 55px;
+         text-align: start;
         }
+      } */
+      ul {
+        list-style: none;
+      }
+
+      ul li {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--light-blue-color);
+        font-weight: bold;
       }
       button {
         &:hover {
@@ -170,6 +193,14 @@ const StyledService = styled(motion.div)`
     flex-direction: column;
     overflow: hidden;
 
+    img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 28%;
+      height: auto;
+    }
+
     h4,
     h2 {
       /* color: white; */
@@ -177,12 +208,21 @@ const StyledService = styled(motion.div)`
       text-align: center;
     }
     ul {
-      li {
-        list-style-type: circle;
-        /* color: white; */
-        text-align: start;
+        list-style: none;
       }
-    }
+
+      ul li {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--light-blue-color);
+        font-weight: bold;
+      }
     button {
       &:hover {
         background-color: var(--primary-color-dark);
@@ -273,11 +313,14 @@ const StyledService = styled(motion.div)`
         #9e9fa0
       );
       box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
-      ul {
-          li {
-            color: white;
-          }
-        }
+      
+      ul li {
+        color: white;
+      }
+
+      ul li::before {
+        color: var(--primary-color);
+      }
     }
     .cards_center {
       /* background-color: var(--background-color-light); */
@@ -289,11 +332,13 @@ const StyledService = styled(motion.div)`
         #9e9fa0
       );
       box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
-      ul {
-          li {
-            color: white;
-          }
-        }
+       ul li {
+        color: white;
+      }
+
+      ul li::before {
+        color: var(--primary-color);
+      }
     }
   }
 `;

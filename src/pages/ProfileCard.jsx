@@ -96,20 +96,21 @@ const StyledProfile = styled(motion.div)`
   }
 
   body.dark-mode & {
-   background: linear-gradient(
+   /* background: linear-gradient(
         to left,
         var(--background-color-light),
-        #9e9fa0
+        #676868
       );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      box-shadow: 20px 20px 60px #6f7070 -20px -20px 60px #727272; */
+      background-color: white;
 
     .main_profile {
-      h2 {
+      /* h2 {
         color: white;
       }
       p {
         color: white;
-      }
+      } */
 
     .icon_container {
       .icon {

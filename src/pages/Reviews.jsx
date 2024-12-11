@@ -166,8 +166,10 @@ const StyledReviews = styled(motion.div)`
 
     .controls {
       display: flex;
-      justify-content: start;
-      align-items: flex-start;
+      /* justify-content: start;
+      align-items: flex-start; */
+      justify-content: center;
+      align-items: center;
       gap: 2rem;
       margin-top: 5rem;
       .prev,
