@@ -65,7 +65,7 @@ export default function Skills() {
     <>
       <StyledSkils
         whileInView={{ y: 0, opacity: 1 }}
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
@@ -759,11 +759,11 @@ const StyledDevops = styled.div`
   body.dark-mode & {
     .skill_cards {
       .card {
-        /* background-color: var(--background-color-light); */
+        background-color: var(--background-color-light);
         /* background: #ffffff08;
         box-shadow: -20px -20px 60px #ffffff02, 20px 20px 60px #ffffff02; */
-     background:linear-gradient(to right, var(--background-color-light), #9e9fa0);
-     box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+     /* background:linear-gradient(to right, var(--background-color-light), #9e9fa0);
+     box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
       }
     }
   }

@@ -3,36 +3,25 @@ import styled from "styled-components";
 import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import BackdropWrapper from "../components/modals/BackdropWrapper";
-import ExperienceModal from "../components/modals/ExperienceModal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import experienceDetails from "../Experience";
+import { useNavigate } from "react-router-dom";
 
 export default function ExperiencePage() {
-  const [backdrop, setBackdrop] = useState(false);
-  const [selectedExperience, setSelectedExperience] = useState(null);
+  const navigate = useNavigate()
 
   const passHandler = (experience) => {
-    setSelectedExperience(experience);
-    setBackdrop((prev) => !prev);
+    navigate(`/experience/${experience.title}`, { state: experience });
   };
+  
   return (
     <>
-      <BackdropWrapper
-        handleBackdrop={() => setBackdrop(false)}
-        smallSize={true}
-        element={
-          <ExperienceModal
-            backdropHandler={() => setBackdrop(false)}
-            experience={selectedExperience}
-          />
-        }
-        open={backdrop}
-      />
+      
       <Navbar />
       <StyledExperience
         whileInView={{ y: 0, opacity: 1 }}
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
@@ -47,7 +36,7 @@ export default function ExperiencePage() {
                 key={index}
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: -20, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 transition={{ duration: 1, delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(experience)}
@@ -171,12 +160,13 @@ const StyledExperience = styled(motion.div)`
   body.dark-mode & {
     .experience_cards {
       .card {
-        background: linear-gradient(
+        /* background: linear-gradient(
         to right,
         var(--background-color-light),
         #9e9fa0
       );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+      background-color: var(--background-color-light);
         .content {
           p {
             color: var(--text-light-color);

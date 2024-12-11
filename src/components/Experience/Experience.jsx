@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import TagUserBlue from "../../assets/tag-user-blue.svg";
 import TagUserRed from "../../assets/tag-user-red.svg";
 import Footer from "../Footer";
 import { useLocation } from "react-router-dom";
 
-export default function Freelance() {
+export default function Experience() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-
 
   useEffect(() => {
     const checkTheme = () => {
@@ -32,110 +31,105 @@ export default function Freelance() {
   }, []);
 
   const location = useLocation();
-  const project = location.state;
+  const experience = location.state;
 
-  if (!project) {
-    return <p>No project details available.</p>;
+  if (!experience) {
+    return <p>No experience details available.</p>;
   }
-
-
 
   return (
     <>
       <Navbar />
       <StyledProjects>
-        <motion.div className="main_projects"
+        <motion.div
+          className="main_projects"
           whileInView={{ y: 0, opacity: 1 }}
           initial={{ y: 50, opacity: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: true }}>
-
-          <motion.div className="header_content" whileInView={{ y: 0, opacity: 1 }}
-            initial={{ y: 50, opacity: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            viewport={{ once: true }}>
-            <h1>{project.title}</h1>
-            <p>
-              {project.role}
-            </p>
-          </motion.div>
-
-          <motion.div className="info_cards"
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="header_content"
             whileInView={{ y: 0, opacity: 1 }}
             initial={{ y: 50, opacity: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}>
-            <div className="card">
-              <div className="card_header">
-                <img
-                  src={isDarkTheme ? TagUserRed : TagUserBlue}
-                  alt="tag-user"
-                />
-                <h4>Client Name</h4>
-              </div>
-              <p>Temform</p>
-            </div>
-            <div className="card">
-              <div className="card_header">
-                <img
-                  src={isDarkTheme ? TagUserRed : TagUserBlue}
-                  alt="tag-user"
-                />
-                <h4>Project Type</h4>
-              </div>
-              <p>Website</p>
-            </div>
-            <div className="card">
-              <div className="card_header">
-                <img
-                  src={isDarkTheme ? TagUserRed : TagUserBlue}
-                  alt="tag-user"
-                />
-                <h4>Project Duration</h4>
-              </div>
-              <p>1 Month</p>
-            </div>
+            transition={{ duration: 1, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {/* <h1>Project Title</h1> */}
+            <h1>{experience.title}</h1>
+            <p>{experience.role}</p>
           </motion.div>
 
-          <motion.div className="image_contianer" whileInView={{ y: 0, opacity: 1 }}
+          <motion.div
+            className="info_cards"
+            whileInView={{ y: 0, opacity: 1 }}
             initial={{ y: 50, opacity: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}>
-            <img src={project.image} alt="" />
+            transition={{ duration: 1, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="card">
+              <div className="card_header">
+                <img
+                  src={isDarkTheme ? TagUserRed : TagUserBlue}
+                  alt="tag-user"
+                />
+                <h4>Company Name</h4>
+              </div>
+              <p>XYZ</p>
+            </div>
+            <div className="card">
+              <div className="card_header">
+                <img
+                  src={isDarkTheme ? TagUserRed : TagUserBlue}
+                  alt="tag-user"
+                />
+                <h4>Duration</h4>
+              </div>
+              <p>1 Year</p>
+            </div>
           </motion.div>
 
+          {/* <div className="image_contianer">
+                        <img src={project.image} alt="" />
+                    </div> */}
 
-          <div className="project_details" >
-            <motion.div whileInView={{ y: 0, opacity: 1 }}
-              initial={{ y: 50, opacity: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}>
-              <h2>Project Overview</h2>
-              <p>{project.description}</p>
-            </motion.div>
-
-            <motion.div whileInView={{ y: 0, opacity: 1 }}
+          <div className="project_details">
+            <motion.div
+              whileInView={{ y: 0, opacity: 1 }}
               initial={{ y: 50, opacity: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              viewport={{ once: true }}>
-              <h2>Skills</h2>
-              <p>{project.skill}</p>
+              viewport={{ once: true }}
+            >
+              <h2>Overview</h2>
+              <ul>
+                {experience.description.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+              {/* <p>{experience.description}</p> */}
             </motion.div>
 
+            {/* <div>
+                            <h2>Skills</h2>
+                            <p>{project.skill}</p>
+                        </div> */}
 
-            {project.video && (
+            {experience.video && (
               <>
-                <motion.div className="video" whileInView={{ y: 0, opacity: 1 }}
+                <motion.div
+                  className="video"
+                  whileInView={{ y: 0, opacity: 1 }}
                   initial={{ y: 50, opacity: 0 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  viewport={{ once: true }}>
+                  viewport={{ once: true }}
+                >
                   <div>
                     <h2>Working</h2>
                   </div>
                   <iframe
                     width="100%"
                     height="100%"
-                    src={project.video}
+                    src={experience.video}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -146,32 +140,27 @@ export default function Freelance() {
                 </motion.div>
               </>
             )}
+            {/* {project.member && (<>
+                            <div>
+                                <h2>Credits</h2>
+                                <p>{project.members}</p>
+                            </div>
+                        </>)} */}
 
-            <motion.div className="features" whileInView={{ y: 0, opacity: 1 }}
+            <motion.div
+              className="features"
+              whileInView={{ y: 0, opacity: 1 }}
               initial={{ y: 50, opacity: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              viewport={{ once: true }}>
-              <h2>Key Features</h2>
+              transition={{ duration: 1, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h2>Achievements</h2>
               <ul>
-                {project.features.map((point, i) => (
+                {experience.achivements.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}
               </ul>
             </motion.div>
-
-            {project.members && (<>
-              <motion.div
-                whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: 50, opacity: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                viewport={{ once: true }}>
-                <h2>Credits</h2>
-                <p>{project.members}</p>
-              </motion.div>
-            </>)}
-
-
-
           </div>
         </motion.div>
       </StyledProjects>
@@ -192,10 +181,10 @@ const StyledProjects = styled.div`
       align-items: center;
       flex-direction: column;
       gap: 1rem;
-      h1{
+      h1 {
         text-align: center;
       }
-      p{
+      p {
         text-align: center;
         max-width: 50ch;
       }
@@ -209,9 +198,7 @@ const StyledProjects = styled.div`
       width: 100%;
 
       .card {
-        /* background: #e3edf7;
-      box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff; */
-      /* background: linear-gradient(
+        /* background: linear-gradient(
           to right,
           var(--background-color-light),
           #9e9fa0
@@ -225,6 +212,7 @@ const StyledProjects = styled.div`
         align-items: flex-start;
         gap: 1rem;
         cursor: pointer;
+
 
         .card_header {
           display: flex;
@@ -271,6 +259,14 @@ const StyledProjects = styled.div`
       flex-direction: column;
       gap: 2rem;
 
+      ul {
+        padding-left: 2%;
+        li {
+          list-style-type: circle;
+          color: black;
+        }
+      }
+
       div {
         display: flex;
         justify-content: flex-start;
@@ -283,26 +279,10 @@ const StyledProjects = styled.div`
         width: 100%;
         height: 80vh;
       }
-
-      .features{
-         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 1rem;
-        ul{
-          padding-left: 2%;
-        li{
-            list-style-type: circle;
-            color: black;
-        }
-      }
-      }
     }
   }
 
-
-  body.light-mode & {
+   body.light-mode & {
     .main_projects{
       .info_cards{
         .card{
@@ -313,8 +293,8 @@ const StyledProjects = styled.div`
     }
   }
 
-  
-  body.dark-mode & {
+
+   body.dark-mode & {
   .main_projects {
     .info_cards {
       .card {
@@ -323,13 +303,20 @@ const StyledProjects = styled.div`
           var(--background-color-light),
           #9e9fa0
         ); */
-        background-color: var(--background-color-light);
         p{
           color: white;
         }
       }
     }
     .project_details {
+        div{
+            ul{
+                li{
+                    color: white;
+                }
+            }
+        }
+        
       .features {
         ul {
           li {
@@ -340,6 +327,4 @@ const StyledProjects = styled.div`
     }
   }
 }
-
 `;
-

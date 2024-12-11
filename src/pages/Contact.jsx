@@ -1,38 +1,90 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
+import emailjs from '@emailjs/browser';
+import Snackbar from "@mui/material/Snackbar";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Contact() {
-  
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    setLoading(true); 
+
+    emailjs
+      .sendForm('service_yn86py9', 'template_asp7dxm', form.current, {
+        publicKey: 'CPJO2-PkW9nfq3rAV',
+      })
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response);
+          form.current.reset();
+          setSnackbarMessage("Email sent successfully!");
+          setSnackbarSeverity("success");
+          setSnackbarOpen(true); 
+        },
+        (error) => {
+          console.error('FAILED...', error);
+          setSnackbarMessage("Failed to send email. Please try again.");
+          setSnackbarSeverity("error");
+          setSnackbarOpen(true); 
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
   return (
     <StyledContact
       whileInView={{ y: 0, opacity: 1 }}
-      initial={{ y: -50, opacity: 0 }}
+      initial={{ y: 50, opacity: 0 }}
       transition={{ duration: 1, delay: 0.3 }}
       viewport={{ once: true }}
     >
-
-
       <div className="main_contact">
         <h1>
           LET'S WORK <span>TOGETHER</span>
         </h1>
 
-        <form action="">
-          <label htmlFor="">Name</label>
-          <input type="text" placeholder="Name" />
+        <form ref={form} onSubmit={sendEmail}>
+          <label htmlFor="name">Name</label>
+          <input type="text" name="user_name" placeholder="Name" required />
           <br />
-          <label htmlFor="">Email</label>
-          <input type="text" placeholder="Email" />
+          <label htmlFor="email">Email</label>
+          <input type="email" name="user_email" placeholder="Email" required />
           <br />
-          <label htmlFor="">Message</label>
-          <textarea name="" id="" placeholder="Message"></textarea>
+          <label htmlFor="message">Message</label>
+          <textarea name="message" placeholder="Message" required></textarea>
           <br />
-          <button>Submit</button>
+          <button type="submit" disabled={loading}>
+            {loading ? <CircularProgress size={24} style={{color:'white'}}/> : "Submit"}
+          </button>
         </form>
       </div>
 
+     
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        message={snackbarMessage}
+        severity={snackbarSeverity}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      />
     </StyledContact>
   );
 }
@@ -44,7 +96,6 @@ const StyledContact = styled(motion.div)`
 
   .main_contact {
     h1 {
-      /* color: white; */
       font-size: var(--xl-heading);
       margin-bottom: var(--heading-margin);
 
@@ -68,7 +119,8 @@ const StyledContact = styled(motion.div)`
         width: 50%;
         margin: 0.5rem auto;
       }
-      input {
+      input,
+      textarea {
         width: 50%;
         margin: auto;
         background-color: var(--background-color-light);
@@ -139,8 +191,8 @@ const StyledContact = styled(motion.div)`
         button {
           background-color: var(--light-blue-color);
           &:hover {
-          background-color: var(--blue-color-dark);
-        }
+            background-color: var(--blue-color-dark);
+          }
         }
       }
     }

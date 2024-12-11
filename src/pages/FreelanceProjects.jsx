@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import ProjectModal from "../components/modals/ProjectModal";
-import BackdropWrapper from "../components/modals/BackdropWrapper";
+import {useNavigate} from 'react-router-dom'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { projectDetails } from "../Projects";
 
 export default function FreelanceProjects() {
-  // const [projects, ]
+  const navigate = useNavigate()
+
+  const passHandler = (project) => {
+    window.scrollTo(0, 0);
+    navigate(`/projects/${project.title}`, { state: project, scrollMode: 'always' });
+    
+  };
+
+
   return (
     <>
       <Navbar />
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
@@ -29,7 +36,7 @@ export default function FreelanceProjects() {
                 key={index}
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: -20, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 transition={{ duration: 1, delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(project)}
@@ -144,12 +151,13 @@ const StyledProjects = styled(motion.div)`
     .main_projects{
       .project_cards{
         .card{
-          background: linear-gradient(
+          /* background: linear-gradient(
         to left,
         var(--background-color-light),
         #9e9fa0
       );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+      background-color: var(--background-color-light);
         }
       }
     }
@@ -178,18 +186,4 @@ const StyledProjects = styled(motion.div)`
     }
   }
 
-  /* body.dark-mode & {
-    .project_cards {
-      .card {
-        &:hover {
-          background-color: var(--background-color-light);
-        }
-      }
-      .content {
-        p {
-          color: var(--text-light-color);
-        }
-      }
-    }
-  } */
 `;

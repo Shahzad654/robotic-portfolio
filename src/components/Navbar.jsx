@@ -196,7 +196,9 @@ export default function Navbar() {
           </div> */}
 
           <div className="navbar_container">
-            <Link to="/" className="links">Home</Link>
+            <Link to="/" className="links">
+              Home
+            </Link>
 
             <div class="dropdown">
               <a class="dropbtn">Projects</a>
@@ -207,8 +209,12 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/experience" className="links">Experience</Link>
-            <Link to="/contact" className="links">Contact</Link>
+            <Link to="/experience" className="links">
+              Experience
+            </Link>
+            <Link to="/contact" className="links">
+              Contact
+            </Link>
           </div>
         </div>
 
@@ -258,14 +264,14 @@ const StyledNavbar = styled.div`
         border: none;
         cursor: pointer;
 
-        &:hover{
-          color: var( --primary-color);
+        &:hover {
+          color: var(--primary-color);
         }
       }
 
-      .links{
-          &:hover{
-          color: var( --primary-color);
+      .links {
+        &:hover {
+          color: var(--primary-color);
         }
       }
 
@@ -352,14 +358,14 @@ const StyledNavbar = styled.div`
       }
       .dropbtn {
         color: black;
-         &:hover{
-          color: var( --light-blue-color);
+        &:hover {
+          color: var(--light-blue-color);
         }
       }
 
-       .links{
-          &:hover{
-          color: var( --light-blue-color);
+      .links {
+        &:hover {
+          color: var(--light-blue-color);
         }
       }
 
@@ -375,28 +381,30 @@ const StyledNavbar = styled.div`
 
       .dropdown-content a:hover {
         background-color: var(--light-blue-color);
+        color: white;
       }
     }
   }
 
-  body.dark-mode &{
-    .main_navbar{
-        background: linear-gradient(
+  body.dark-mode & {
+    .main_navbar {
+      /* background: linear-gradient(
         to right,
         var(--background-color-light),
         #9e9fa0
       );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+      background-color: var(--background-color-light);
       .dropdown-content {
-        background: linear-gradient(
-        to right,
-        var(--background-color-light),
-        #9e9fa0
-      );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+        /* background-color: var(--background-color-light); */
+        background-color: white;
+      }
+      .dropdown-content a{
+        color: black;
       }
       .dropdown-content a:hover {
         background-color: var(--primary-color);
+        color: white;
       }
     }
   }

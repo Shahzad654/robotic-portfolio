@@ -9,6 +9,8 @@ import ContactPage from "./pages/ContactPage";
 import ThemeButton from "./components/ThemeButton";
 import Entrepreneurship from "./pages/Entrepreneurship";
 import Freelance from "./components/Projects/Freelance";
+import Experience from "./components/Experience/Experience";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -27,20 +29,28 @@ function App() {
     }
   }, [isDarkMode]);
 
+
+  
+
   return (
     <>
       <ThemeButton isDarkMode={isDarkMode} toggleTheme={toggleTheme}/>
+     
       <BrowserRouter>
-        <Routes>
+        <ScrollToTop />
+        <Routes> 
           <Route path="/" element={<MainPage />} />
           <Route path="/freelance-projects" element={<FreelanceProjects />} />
           <Route path="/outlet-projects" element={<OutletProjects />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/entrepreneurship" element={<Entrepreneurship/> } />
-          <Route path="/projects" element={<Freelance/> } />
+          {/* <Route path="/projects" element={<Freelance/> } /> */}
+          <Route path="/projects/:title" element={<Freelance />} />
+          <Route path="/experience/:title" element={<Experience/> } />
         </Routes>
       </BrowserRouter>
+
     </>
   );
 }

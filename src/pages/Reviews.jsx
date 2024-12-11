@@ -30,7 +30,7 @@ export default function Reviews() {
   return (
     <StyledReviews
       whileInView={{ y: 0, opacity: 1 }}
-      initial={{ y: -50, opacity: 0 }}
+      initial={{ y: 50, opacity: 0 }}
       transition={{ duration: 1, delay: 0.3 }}
       viewport={{ once: true }}
     >

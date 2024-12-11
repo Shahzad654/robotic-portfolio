@@ -8,7 +8,7 @@ export default function Publications() {
     <>
       <StyledPublications
         whileInView={{ y: 0, opacity: 1 }}
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
@@ -19,7 +19,7 @@ export default function Publications() {
             <motion.div
               className="card"
               whileInView={{ y: 0, opacity: 1 }}
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
               viewport={{ once: true }}
             >
@@ -54,7 +54,7 @@ export default function Publications() {
             <motion.div
               className="card"
               whileInView={{ y: 0, opacity: 1 }}
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
               viewport={{ once: true }}
             >
@@ -87,7 +87,7 @@ export default function Publications() {
             <motion.div
               className="card"
               whileInView={{ y: 0, opacity: 1 }}
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
               viewport={{ once: true }}
             >
@@ -149,13 +149,13 @@ const StyledPublications = styled(motion.div)`
         gap: 2rem;
         padding-left: 2%;
         padding-right: 2%;
-        /* background-color: var(--background-color-light); */
-        background: linear-gradient(
+        background-color: var(--background-color-light);
+        /* background: linear-gradient(
           to right,
           var(--background-color-light),
           #9e9fa0
         );
-        box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+        box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
 
         .content {
           display: flex;

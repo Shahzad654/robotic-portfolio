@@ -1,58 +1,24 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ProjectImg1 from "../assets/Project1.jpg";
-import ProjectImg4 from "../assets/Project4.png";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ProjectModal from "../components/modals/ProjectModal";
 import BackdropWrapper from "../components/modals/BackdropWrapper";
-
-const projectDetails = [
-  {
-    title: "Hand Crafted Notes",
-    role: "System Designer, Integrator and Technology lead",
-    description: [
-      "I had the privilege of collaborating with HandCraftedNotes, an innovative startup aiming to revolutionize the way businesses engage with their clients. ",
-      "As the Lead Engineer, I was entrusted with designing the overall system architecture and spearheading the development of cutting-edge automated machines. ",
-    ],
-    skill: "Leadership, Embedded System, Raspberry Pi, Python, Networking",
-    members: "Hardware Support: Jason, Software Support: Prabhas ",
-    image: ProjectImg1,
-    video: "https://www.youtube.com/embed/eGAg2fmg6bo?si=NbGxnl8nZ1iBa7Rd",
-  },
-  {
-    title: "Home Lab",
-    role: "System Designer, Integrator",
-    description:
-      "A compact home lab server rack with servers, networking hardware, and organized cabling, ideal for experimenting with virtualization, networking, and IT solutions.",
-    image: ProjectImg4,
-  },
-];
+import { projectDetails } from "../Projects";
 
 export default function Projects() {
-  const [backdrop, setBackdrop] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate()
 
   const passHandler = (project) => {
-    setSelectedProject(project);
-    setBackdrop((prev) => !prev);
+    navigate(`/projects/${project.title}`, { state: project });
   };
 
   return (
     <>
-      <BackdropWrapper
-        handleBackdrop={() => setBackdrop(false)}
-        smallSize={true}
-        element={
-          <ProjectModal
-            backdropHandler={() => setBackdrop(false)}
-            project={selectedProject}
-          />
-        }
-        open={backdrop}
-      />
+      
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
@@ -62,12 +28,12 @@ export default function Projects() {
           </h1>
 
           <div className="project_cards">
-            {projectDetails.map((project, index) => (
+            {projectDetails.slice(0, 2).map((project, index) => (
               <motion.div
                 key={index}
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: -20, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(project)}
@@ -123,13 +89,13 @@ const StyledProjects = styled(motion.div)`
         align-items: center;
         gap: 1rem;
         padding-left: 2%;
-        /* background-color: var(--background-color-light); */
-        background: linear-gradient(
+        background-color: var(--background-color-light);
+        /* background: linear-gradient(
           to right,
           var(--background-color-light),
           #4e4e4e
         );
-        box-shadow: 20px 20px 60px #515152 -20px -20px 60px #424242;
+        box-shadow: 20px 20px 60px #515152 -20px -20px 60px #424242; */
         cursor: pointer;
 
         .image_container {

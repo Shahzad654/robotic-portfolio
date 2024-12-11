@@ -1,39 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import ProjectModal from "../components/modals/ProjectModal";
-import BackdropWrapper from "../components/modals/BackdropWrapper";
+import { useNavigate } from 'react-router-dom'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { outletprojectDetails } from "../Projects";
-import OutletProjectModal from "../components/modals/OutletProjectModal";
 
 export default function OutletProjects() {
-  const [backdrop, setBackdrop] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate()
 
   const passHandler = (project) => {
-    setSelectedProject(project);
-    setBackdrop((prev) => !prev);
+    navigate(`/projects/${project.title}`, { state: project });
   };
 
   return (
     <>
-      <BackdropWrapper
-        handleBackdrop={() => setBackdrop(false)}
-        smallSize={true}
-        element={
-          <OutletProjectModal
-            backdropHandler={() => setBackdrop(false)}
-            project={selectedProject}
-          />
-        }
-        open={backdrop}
-      />
+
       <Navbar />
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: true }}
       >
@@ -48,7 +34,7 @@ export default function OutletProjects() {
                 key={index}
                 className="card"
                 whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: -20, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 transition={{ duration: 1, delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
                 onClick={() => passHandler(project)}
@@ -56,7 +42,7 @@ export default function OutletProjects() {
                 <img src={project.image} alt={project.title} />
                 <div className="content">
                   <h4>{project.title}</h4>
-                  <p>{project.description}</p>
+                  <p>{project.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -96,7 +82,8 @@ const StyledProjects = styled(motion.div)`
 
       .card {
         width: 300px;
-        height: 450px;
+        height: 400px;
+        
         margin: auto;
         border-radius: var(--m-radius);
         display: flex;
@@ -186,12 +173,13 @@ const StyledProjects = styled(motion.div)`
      .main_projects{
       .project_cards{
         .card{
-          background: linear-gradient(
+          /* background: linear-gradient(
         to left,
         var(--background-color-light),
         #9e9fa0
       );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5;
+      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+      background-color: var(--background-color-light);
         }
       }
     }
