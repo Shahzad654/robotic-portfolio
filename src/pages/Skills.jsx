@@ -18,7 +18,7 @@ import Vision from "../assets/view red.svg";
 import VR from "../assets/vr red.svg";
 import Unity from "../assets/unity red.svg";
 import RasberryPI from "../assets/brand-raspberrypi-svgrepo-com (1).svg";
-import Printing from "../assets/printer red.svg";
+import Printing from "../assets/3d-printing-red.png";
 import OS1 from "../assets/os red.svg";
 import Linux from "../assets/linux red.svg";
 import Docker from '../assets/docker.svg'
@@ -37,7 +37,7 @@ import UnityBlue from "../assets/unity blue.svg";
 import OSBlue from "../assets/OS blue.svg";
 import LinuxBlue from "../assets/linux blue.svg";
 import RasberryPIBlue from "../assets/raspberrypi blue.svg";
-import PrintingBlue from "../assets/printer blue.svg";
+import PrintingBlue from "../assets/3d-printing-blue.png";
 import NetworkingBlue from "../assets/networking blue.svg";
 import ITBlue from "../assets/IT Blue.svg";
 import TCPBlue from "../assets/routing blue.svg";
