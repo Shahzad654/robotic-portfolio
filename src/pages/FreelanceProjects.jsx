@@ -8,27 +8,9 @@ import Footer from "../components/Footer";
 import { projectDetails } from "../Projects";
 
 export default function FreelanceProjects() {
-  const [backdrop, setBackdrop] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const passHandler = (project) => {
-    setSelectedProject(project);
-    setBackdrop((prev) => !prev);
-  };
-
+  // const [projects, ]
   return (
     <>
-      <BackdropWrapper
-        handleBackdrop={() => setBackdrop(false)}
-        smallSize={false}
-        element={
-          <ProjectModal
-            backdropHandler={() => setBackdrop(false)}
-            project={selectedProject}
-          />
-        }
-        open={backdrop}
-      />
       <Navbar />
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
