@@ -21,12 +21,12 @@ import RasberryPI from "../assets/brand-raspberrypi-svgrepo-com (1).svg";
 import Printing from "../assets/3d-printing-red.png";
 import OS1 from "../assets/os red.svg";
 import Linux from "../assets/linux red.svg";
-import Docker from '../assets/docker.svg'
-import AWS from '../assets/aws.svg'
-import Electronics from '../assets/electronics.svg'
-import Robots from '../assets/robots.svg'
-import CloudComputing from '../assets/cloud-computing.svg'
-import Autocad from '../assets/autocad.svg'
+import Docker from "../assets/docker.svg";
+import AWS from "../assets/aws.svg";
+import Electronics from "../assets/electronics.svg";
+import Robots from "../assets/robots.svg";
+import CloudComputing from "../assets/cloud-computing.svg";
+import Autocad from "../assets/autocad.svg";
 
 import DroneBlue from "../assets/drone blue.svg";
 import SolidWorksBlue from "../assets/solidworks blue.svg";
@@ -46,12 +46,12 @@ import ServerBlue from "../assets/servers blue.svg";
 import ProxmoxBlue from "../assets/proxmox blue.svg";
 import CICDBlue from "../assets/ci-cd blue.svg";
 import BackendBlue from "../assets/database blue.svg";
-import DockerBlue from '../assets/docker blue.svg';
-import AWSBlue from '../assets/aws blue.svg'
-import ElectronicsBlue from '../assets/electronics blue.svg'
-import RobotsBlue from '../assets/robots blue.svg'
-import CloudComputingBlue from '../assets/cloud-computing-blue.svg'
-import AutocadBlue from '../assets/autocad blue.svg'
+import DockerBlue from "../assets/docker blue.svg";
+import AWSBlue from "../assets/aws blue.svg";
+import ElectronicsBlue from "../assets/electronics blue.svg";
+import RobotsBlue from "../assets/robots blue.svg";
+import CloudComputingBlue from "../assets/cloud-computing-blue.svg";
+import AutocadBlue from "../assets/autocad blue.svg";
 
 import { motion } from "framer-motion";
 
@@ -175,7 +175,6 @@ const Devops = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: false }}
-            whileHover={{ scale: 1.1, rotate: 1 }}
           >
             <img src={isDarkTheme ? AWS : AWSBlue} alt="OS" />
 
@@ -188,7 +187,6 @@ const Devops = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
             viewport={{ once: false }}
-            whileHover={{ scale: 1.1 }}
           >
             {/* <div className="image_border">
             
@@ -273,7 +271,7 @@ const Devops = () => {
            
           </div> */}
             {/* <img src={TCP} alt="" /> */}
-            <img src={isDarkTheme ? Docker: DockerBlue} alt="OS" />
+            <img src={isDarkTheme ? Docker : DockerBlue} alt="OS" />
 
             <h4>Docker</h4>
           </motion.div>
@@ -434,7 +432,6 @@ const Software = () => {
             <h4>Robot OS </h4>
           </motion.div>
 
-
           <motion.div
             className="card"
             initial={{ opacity: 0, y: 20 }}
@@ -445,7 +442,10 @@ const Software = () => {
             {/* <div className="image_border"></div> */}
 
             {/* <img src={OS1} alt="" /> */}
-            <img src={isDarkTheme ? CloudComputing : CloudComputingBlue} alt="OS" />
+            <img
+              src={isDarkTheme ? CloudComputing : CloudComputingBlue}
+              alt="OS"
+            />
 
             <h4>Cloud Computing </h4>
           </motion.div>
@@ -748,7 +748,11 @@ const StyledDevops = styled.div`
     .skill_cards {
       .card {
         /* background-color: var(--light-gray-color); */
-        background:linear-gradient(to right, var(--background-color-light-mode), #fdfeff);
+        background: linear-gradient(
+          to right,
+          var(--background-color-light-mode),
+          #fdfeff
+        );
         h4 {
           color: black;
         }
@@ -759,11 +763,9 @@ const StyledDevops = styled.div`
   body.dark-mode & {
     .skill_cards {
       .card {
-        background-color: var(--background-color-light);
-        /* background: #ffffff08;
-        box-shadow: -20px -20px 60px #ffffff02, 20px 20px 60px #ffffff02; */
-     /* background:linear-gradient(to right, var(--background-color-light), #9e9fa0);
-     box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+        /* background-color: var(--background-color-light); */
+        box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
       }
     }
   }

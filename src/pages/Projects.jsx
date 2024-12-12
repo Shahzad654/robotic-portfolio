@@ -10,7 +10,7 @@ export default function Projects() {
   const navigate = useNavigate()
 
   const passHandler = (project) => {
-    navigate(`/projects/${project.title}`, { state: project });
+    navigate(`/projects/${project.slug}`);
   };
 
   return (
@@ -89,13 +89,8 @@ const StyledProjects = styled(motion.div)`
         align-items: center;
         gap: 1rem;
         padding-left: 2%;
-        background-color: var(--background-color-light);
-        /* background: linear-gradient(
-          to right,
-          var(--background-color-light),
-          #4e4e4e
-        );
-        box-shadow: 20px 20px 60px #515152 -20px -20px 60px #424242; */
+        /* background-color: var(--background-color-light); */
+       
         cursor: pointer;
 
         .image_container {
@@ -178,6 +173,8 @@ const StyledProjects = styled(motion.div)`
   body.dark-mode & {
     .project_cards {
       .card {
+        box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
         /* &:hover {
           background-color: var(--background-color-light);
         } */

@@ -82,6 +82,8 @@
     --primary-color: #A03232;
     --primary-color-dark: #8b2a2a;
     --primary-color-light: #ac4945;
+    --shadow-color-light: rgba(255, 255, 255, 0.1);
+    --shadow-color-dark: rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -111,15 +113,17 @@
 html {
   /* font-size: 62.5%; */
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body {
   font-family: "Poppins", sans-serif;
   /* background: var(--background-color-dark); */
   color: var(--text-color);
-  overflow-y: auto;
-  overflow-x: hidden;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+    scroll-behavior: smooth;
+    overflow: auto;
   height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

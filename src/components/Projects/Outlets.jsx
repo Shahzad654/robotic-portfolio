@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar";
-import ProjectImg from "../../assets/Project3.jpg";
+import {motion} from 'framer-motion'
 import TagUserBlue from "../../assets/tag-user-blue.svg";
 import TagUserRed from "../../assets/tag-user-red.svg";
 import Footer from "../Footer";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { outletprojectDetails } from "../../Projects";
+import ProjectNotFound from '../../pages/ProjectNotFound'
 
 export default function Outlets() {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -30,11 +32,11 @@ export default function Outlets() {
         return () => observer.disconnect();
     }, []);
 
-    const location = useLocation();
-    const project = location.state;
+  const { slug } = useParams();
+  const project = outletprojectDetails.find((p) => p.slug === slug);
 
     if (!project) {
-        return <p>No project details available.</p>;
+        return <ProjectNotFound/>
     }
 
 
@@ -52,38 +54,43 @@ export default function Outlets() {
                         </p>
                     </div>
 
-                    <div className="info_cards">
-                        <div className="card">
-                            <div className="card_header">
-                                <img
-                                    src={isDarkTheme ? TagUserRed : TagUserBlue}
-                                    alt="tag-user"
-                                />
-                                <h4>Client Name</h4>
-                            </div>
-                            <p>Temform</p>
-                        </div>
-                        <div className="card">
-                            <div className="card_header">
-                                <img
-                                    src={isDarkTheme ? TagUserRed : TagUserBlue}
-                                    alt="tag-user"
-                                />
-                                <h4>Project Type</h4>
-                            </div>
-                            <p>Website</p>
-                        </div>
-                        <div className="card">
-                            <div className="card_header">
-                                <img
-                                    src={isDarkTheme ? TagUserRed : TagUserBlue}
-                                    alt="tag-user"
-                                />
-                                <h4>Project Duration</h4>
-                            </div>
-                            <p>1 Month</p>
-                        </div>
-                    </div>
+            <motion.div className="info_cards"
+              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ y: 50, opacity: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}>
+              <div className="card">
+                <div className="card_header">
+                  <img
+                    src={isDarkTheme ? TagUserRed : TagUserBlue}
+                    alt="tag-user"
+                  />
+                  <h4>Client Name</h4>
+                </div>
+                <p>{project.clientName}</p>
+              </div>
+              <div className="card">
+                <div className="card_header">
+                  <img
+                    src={isDarkTheme ? TagUserRed : TagUserBlue}
+                    alt="tag-user"
+                  />
+                  <h4>Project Type</h4>
+                </div>
+                <p>{project.type}</p>
+              </div>
+              <div className="card">
+                <div className="card_header">
+                  <img
+                    src={isDarkTheme ? TagUserRed : TagUserBlue}
+                    alt="tag-user"
+                  />
+                  <h4>Project Duration</h4>
+                </div>
+                <p>{project.duration}</p>
+              </div>
+            </motion.div>
+
 
                     <div className="image_contianer">
                         <img src={project.image} alt="" />
@@ -166,12 +173,8 @@ const StyledProjects = styled.div`
       width: 100%;
 
       .card {
-         /* background: linear-gradient(
-          to right,
-          var(--background-color-light),
-          #9e9fa0
-        ); */
-        background-color: var(--background-color-light);
+         
+        /* background-color: var(--background-color-light); */
         border-radius: var(--m-radius);
         padding: 20px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -259,6 +262,8 @@ const StyledProjects = styled.div`
   .main_projects {
     .info_cards {
       .card {
+        box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
        
         p{
           color: white;

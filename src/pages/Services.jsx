@@ -304,15 +304,8 @@ const StyledService = styled(motion.div)`
 
   body.dark-mode & {
     .cards {
-      background-color: var(--background-color-light);
-      /* background: #ffffff08;
-      box-shadow: -20px -20px 60px #ffffff02, 20px 20px 60px #ffffff02; */
-      /* background: linear-gradient(
-        to right,
-        var(--background-color-light),
-        #9e9fa0
-      );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+      box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
       
       ul li {
         color: white;
@@ -323,15 +316,10 @@ const StyledService = styled(motion.div)`
       }
     }
     .cards_center {
-      background-color: var(--background-color-light);
-      /* background: #ffffff08;
-      box-shadow: -20px -20px 60px #ffffff02, 20px 20px 60px #ffffff02; */
-      /* background: linear-gradient(
-        to right,
-        var(--background-color-light),
-        #9e9fa0
-      );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
+      /* background-color: var(--background-color-light); */
+      box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
+     
        ul li {
         color: white;
       }

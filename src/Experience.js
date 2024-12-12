@@ -1,3 +1,5 @@
+import { generateSlug } from "./utils/slugify";
+
 const experienceDetails = [
   {
     title: "ANA Avatar Xprize Team (AVATAR-HUBO)",
@@ -17,6 +19,9 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
+    companyName: "XYZ",
+    duration: "1 Month",
+    slug: generateSlug("ANA Avatar Xprize Team (AVATAR-HUBO)"),
   },
   {
     title: "TSLA UNLV Independent Research Contract",
@@ -32,6 +37,9 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
+    companyName: "XYZ",
+    duration: "1 Month",
+    slug: generateSlug("TSLA UNLV Independent Research Contract"),
   },
   {
     title: "Drone and Autonomous Systems Lab (DASL)",
@@ -46,6 +54,9 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
+    companyName: "XYZ",
+    duration: "1 Month",
+    slug: generateSlug("Drone and Autonomous Systems Lab (DASL)"),
   },
   {
     title: "Industrial Automation Center",
@@ -58,6 +69,9 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
+    companyName: "XYZ",
+    duration: "1 Month",
+    slug: generateSlug("Industrial Automation Center"),
   },
 
   {
@@ -73,6 +87,9 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
+    companyName: "XYZ",
+    duration: "1 Month",
+    slug: generateSlug("PIRE Fellowship KAIST"),
   },
 ];
 

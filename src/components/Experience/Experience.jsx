@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 import TagUserBlue from "../../assets/tag-user-blue.svg";
 import TagUserRed from "../../assets/tag-user-red.svg";
 import Footer from "../Footer";
-import { useLocation } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import experienceDetails from "../../Experience";
+import ExperienceNotFound from '../../pages/ExperienceNotFound'
 
 export default function Experience() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -30,11 +32,12 @@ export default function Experience() {
     return () => observer.disconnect();
   }, []);
 
-  const location = useLocation();
-  const experience = location.state;
+
+  const { slug } = useParams();
+  const experience = experienceDetails.find((p) => p.slug === slug);
 
   if (!experience) {
-    return <p>No experience details available.</p>;
+    return <ExperienceNotFound/>
   }
 
   return (
@@ -75,7 +78,7 @@ export default function Experience() {
                 />
                 <h4>Company Name</h4>
               </div>
-              <p>XYZ</p>
+              <p>{experience.companyName}</p>
             </div>
             <div className="card">
               <div className="card_header">
@@ -85,7 +88,7 @@ export default function Experience() {
                 />
                 <h4>Duration</h4>
               </div>
-              <p>1 Year</p>
+              <p>{experience.duration}</p>
             </div>
           </motion.div>
 
@@ -198,12 +201,8 @@ const StyledProjects = styled.div`
       width: 100%;
 
       .card {
-        /* background: linear-gradient(
-          to right,
-          var(--background-color-light),
-          #9e9fa0
-        ); */
-        background-color: var(--background-color-light);
+        
+        /* background-color: var(--background-color-light); */
         border-radius: var(--m-radius);
         padding: 20px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -298,11 +297,8 @@ const StyledProjects = styled.div`
   .main_projects {
     .info_cards {
       .card {
-        /* background: linear-gradient(
-          to right,
-          var(--background-color-light),
-          #9e9fa0
-        ); */
+        box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
         p{
           color: white;
         }

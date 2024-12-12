@@ -10,7 +10,7 @@ export default function OutletProjects() {
   const navigate = useNavigate()
 
   const passHandler = (project) => {
-    navigate(`/projects/${project.title}`, { state: project });
+    navigate(`/outlet-projects/${project.slug}`);
   };
 
   return (
@@ -173,13 +173,8 @@ const StyledProjects = styled(motion.div)`
      .main_projects{
       .project_cards{
         .card{
-          /* background: linear-gradient(
-        to left,
-        var(--background-color-light),
-        #9e9fa0
-      );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
-      background-color: var(--background-color-light);
+          box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
         }
       }
     }

@@ -4,6 +4,7 @@ import ProjectImg3 from "./assets/Project3.jpg";
 import ProjectImg4 from "./assets/Project4.png";
 import ProjectImg5 from "./assets/no cloud.png";
 import ProjectImg6 from "./assets/swing sauce.png";
+import {generateSlug} from './utils/slugify'
 
 const projectDetails = [
   {
@@ -23,6 +24,11 @@ const projectDetails = [
     members: "Hardware Support: Jason, Software Support: Prabhas ",
     image: ProjectImg,
     video: "https://www.youtube.com/embed/eGAg2fmg6bo?si=NbGxnl8nZ1iBa7Rd",
+    clientName:'Temford',
+    type:"Website",
+    duration:"1 Month",
+    slug: generateSlug("Hand Crafted Notes"),
+    
   },
   {
     title: "Node-Cloud",
@@ -39,6 +45,10 @@ const projectDetails = [
     ],
     skill: "AWS, NextCloud",
     image: ProjectImg5,
+    clientName:'Temford',
+    type:"Website",
+    duration:"1 Month",
+    slug: generateSlug("Node-Cloud"),
   },
   {
     title: "SwingSauce",
@@ -55,12 +65,16 @@ const projectDetails = [
     ],
     skill: "Python, OpenCv, Machine learning, ffmpeg, Drone Development ",
     image: ProjectImg6,
+    clientName:'Temford',
+    type:"Website",
+    duration:"1 Month",
+    slug: generateSlug("SwingSauce"),
   },
 ];
 
 const outletprojectDetails = [
   {
-    title: "Drone lifting package",
+    title: "Drone Lifting Package",
     description:
       "An advanced autonomous drone system engineered to revolutionize package delivery by ensuring unparalleled efficiency, speed, and reliability. This innovative drone leverages cutting-edge technology, including precise navigation systems, real-time route optimization, and advanced obstacle detection, to facilitate seamless and timely delivery operations. Designed for various industries, it supports environmentally sustainable practices by reducing reliance on traditional transportation methods while maintaining high standards of safety and customer satisfaction.",
     image: ProjectImg2,
@@ -73,6 +87,10 @@ const outletprojectDetails = [
     role: "System Designer, Lead Engineer, Integrator",
     skill: "Leadership, Embedded System, Raspberry Pi, Python, Networking",
     video: "https://www.youtube.com/embed/ak6DsEb4h6Q?si=2DcvGFcCXhqY_8U9",
+    clientName:'Temford',
+    type:"Website",
+    duration:"1 Month",
+    slug: generateSlug("Drone Lifting Package"),
   },
   {
     title: "Home Lab",
@@ -86,7 +104,11 @@ const outletprojectDetails = [
       "Created robust, scalable, and efficient system frameworks to support innovative business solutions.",
     ],
     skill: "Leadership, Embedded System, Raspberry Pi, Python, Networking",
+    clientName:'Temford',
+    type:"Website",
+    duration:"1 Month",
     image: ProjectImg4,
+    slug: generateSlug("Home Lab"),
   },
   {
     title: "Hexapod",
@@ -101,6 +123,10 @@ const outletprojectDetails = [
     ],
     skill: "Leadership, Embedded System, Raspberry Pi, Python, Networking",
     image: ProjectImg3,
+    clientName:'Temford',
+    type:"Website",
+    duration:"1 Month",
+    slug: generateSlug("Hexapod"),
   },
 ];
 

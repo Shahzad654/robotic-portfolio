@@ -96,12 +96,7 @@ const StyledProfile = styled(motion.div)`
   }
 
   body.dark-mode & {
-   /* background: linear-gradient(
-        to left,
-        var(--background-color-light),
-        #676868
-      );
-      box-shadow: 20px 20px 60px #6f7070 -20px -20px 60px #727272; */
+  
       background-color: white;
 
     .main_profile {

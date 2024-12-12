@@ -5,10 +5,14 @@ import { motion } from 'framer-motion'
 import TagUserBlue from "../../assets/tag-user-blue.svg";
 import TagUserRed from "../../assets/tag-user-red.svg";
 import Footer from "../Footer";
-import { useLocation } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { projectDetails } from "../../Projects";
+import ProjectNotFound from '../../pages/ProjectNotFound'
+
 
 export default function Freelance() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+
 
 
   useEffect(() => {
@@ -31,11 +35,11 @@ export default function Freelance() {
     return () => observer.disconnect();
   }, []);
 
-  const location = useLocation();
-  const project = location.state;
+  const { slug } = useParams();
+  const project = projectDetails.find((p) => p.slug === slug);
 
   if (!project) {
-    return <p>No project details available.</p>;
+    return <ProjectNotFound />
   }
 
 
@@ -73,7 +77,7 @@ export default function Freelance() {
                 />
                 <h4>Client Name</h4>
               </div>
-              <p>Temform</p>
+              <p>{project.clientName}</p>
             </div>
             <div className="card">
               <div className="card_header">
@@ -83,7 +87,7 @@ export default function Freelance() {
                 />
                 <h4>Project Type</h4>
               </div>
-              <p>Website</p>
+              <p>{project.type}</p>
             </div>
             <div className="card">
               <div className="card_header">
@@ -93,7 +97,7 @@ export default function Freelance() {
                 />
                 <h4>Project Duration</h4>
               </div>
-              <p>1 Month</p>
+              <p>{project.duration}</p>
             </div>
           </motion.div>
 
@@ -209,14 +213,8 @@ const StyledProjects = styled.div`
       width: 100%;
 
       .card {
-        /* background: #e3edf7;
-      box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff; */
-      /* background: linear-gradient(
-          to right,
-          var(--background-color-light),
-          #9e9fa0
-        ); */
-        background-color: var(--background-color-light);
+        
+        /* background-color: var(--background-color-light); */
         border-radius: var(--m-radius);
         padding: 20px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -318,12 +316,8 @@ const StyledProjects = styled.div`
   .main_projects {
     .info_cards {
       .card {
-        /* background: linear-gradient(
-          to right,
-          var(--background-color-light),
-          #9e9fa0
-        ); */
-        background-color: var(--background-color-light);
+        box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
         p{
           color: white;
         }

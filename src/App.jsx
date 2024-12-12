@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import FreelanceProjects from "./pages/FreelanceProjects";
 import OutletProjects from "./pages/OutletProjects";
@@ -11,9 +11,13 @@ import Entrepreneurship from "./pages/Entrepreneurship";
 import Freelance from "./components/Projects/Freelance";
 import Experience from "./components/Experience/Experience";
 import ScrollToTop from "./components/ScrollToTop";
+import Outlets from "./components/Projects/Outlets";
+import ProjectNotFound from "./pages/ProjectNotFound";
+import ExperienceNotFound from "./pages/ExperienceNotFound";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+ 
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -30,14 +34,12 @@ function App() {
   }, [isDarkMode]);
 
 
-  
-
   return (
     <>
       <ThemeButton isDarkMode={isDarkMode} toggleTheme={toggleTheme}/>
      
       <BrowserRouter>
-        <ScrollToTop />
+      <ScrollToTop>
         <Routes> 
           <Route path="/" element={<MainPage />} />
           <Route path="/freelance-projects" element={<FreelanceProjects />} />
@@ -45,10 +47,13 @@ function App() {
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/entrepreneurship" element={<Entrepreneurship/> } />
-          {/* <Route path="/projects" element={<Freelance/> } /> */}
-          <Route path="/projects/:title" element={<Freelance />} />
-          <Route path="/experience/:title" element={<Experience/> } />
+          <Route path="/projects/:slug" element={<Freelance />} />
+          <Route path="/outlet-projects/:slug" element={<Outlets/> } />
+          <Route path="/experience/:slug" element={<Experience/> } />
+          <Route path="/project-not-found" element={<ProjectNotFound/>} />
+          <Route path="/experience-not-found" element={<ExperienceNotFound/> } />
         </Routes>
+        </ScrollToTop>
       </BrowserRouter>
 
     </>

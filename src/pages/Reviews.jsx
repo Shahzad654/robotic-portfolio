@@ -55,10 +55,10 @@ export default function Reviews() {
                     fontSize: "3rem",
                   },
                   "& .MuiRating-iconFilled": {
-                    color: "gold",
+                    color: "#FFD700",
                   },
                   "& .MuiRating-iconHover": {
-                    color: "gold",
+                    color: "#FFD700",
                   },
                 }}
               />
@@ -79,7 +79,7 @@ export default function Reviews() {
                     fontSize: "3rem",
                   },
                   "& .MuiRating-iconFilled": {
-                    color: "gold",
+                    color: "#FFD700",
                   },
                   "& .MuiRating-iconHover": {
                     color: "gold",
@@ -105,7 +105,7 @@ export default function Reviews() {
                     fontSize: "3rem",
                   },
                   "& .MuiRating-iconFilled": {
-                    color: "gold",
+                    color: "#FFD700",
                   },
                   "& .MuiRating-iconHover": {
                     color: "gold",

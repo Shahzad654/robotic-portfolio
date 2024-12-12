@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import {useNavigate} from 'react-router-dom'
@@ -6,14 +6,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { projectDetails } from "../Projects";
 
+
 export default function FreelanceProjects() {
   const navigate = useNavigate()
 
   const passHandler = (project) => {
-    window.scrollTo(0, 0);
-    navigate(`/projects/${project.title}`, { state: project, scrollMode: 'always' });
-    
+    navigate(`/projects/${project.slug}`);
   };
+
 
 
   return (
@@ -151,13 +151,8 @@ const StyledProjects = styled(motion.div)`
     .main_projects{
       .project_cards{
         .card{
-          /* background: linear-gradient(
-        to left,
-        var(--background-color-light),
-        #9e9fa0
-      );
-      box-shadow: 20px 20px 60px #a8aaac -20px -20px 60px #a8a5a5; */
-      background-color: var(--background-color-light);
+         box-shadow: 4px 4px 8px var(--shadow-color-dark),
+          -4px -4px 8px var(--shadow-color-light);
         }
       }
     }
