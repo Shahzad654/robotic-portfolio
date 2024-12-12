@@ -265,13 +265,13 @@ const StyledNavbar = styled.div`
         cursor: pointer;
 
         &:hover {
-          color: var(--primary-color);
+          color: var(--primary-color-light);
         }
       }
 
       .links {
         &:hover {
-          color: var(--primary-color);
+          color: var(--primary-color-light);
         }
       }
 
@@ -398,7 +398,7 @@ const StyledNavbar = styled.div`
         color: black;
       }
       .dropdown-content a:hover {
-        background-color: var(--primary-color);
+        background-color: var(--primary-color-light);
         color: white;
       }
     }

@@ -81,7 +81,8 @@
     --text-white-color: white;
     --primary-color: #A03232;
     --primary-color-dark: #8b2a2a;
-    --primary-color-light: #ac4945;
+    /* --primary-color-light: #ac4945; */
+    --primary-color-light: #ff4545;
     --shadow-color-light: rgba(255, 255, 255, 0.1);
     --shadow-color-dark: rgba(0, 0, 0, 0.8);
   }

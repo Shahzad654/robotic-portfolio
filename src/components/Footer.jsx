@@ -12,7 +12,7 @@ export default function Footer() {
 
 const StyledFooter = styled.div`
   margin: 150px auto auto auto;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color-light);
   display: flex;
   justify-content: center;
   align-items: center;

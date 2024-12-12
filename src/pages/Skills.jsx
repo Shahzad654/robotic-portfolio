@@ -88,7 +88,7 @@ export default function Skills() {
                 "& .MuiTabs-indicator": {
                   top: 0,
                   bottom: "auto",
-                  backgroundColor: "var(--primary-color)",
+                  backgroundColor: "var(--primary-color-light)",
                 },
 
                 "& .MuiTab-root": {
@@ -99,7 +99,7 @@ export default function Skills() {
                 },
 
                 "& .MuiTab-root.Mui-selected": {
-                  color: "var(--primary-color) !important",
+                  color: "var(--primary-color-light) !important",
                 },
 
                 //  body: {
@@ -121,10 +121,10 @@ export default function Skills() {
                     color: "var(--background-color-light)",
                   },
                   "& .MuiTab-root.Mui-selected": {
-                    color: "var(--primary-color) !important",
+                    color: "var(--primary-color-light) !important",
                   },
                   "& .MuiTabs-indicator": {
-                    backgroundColor: "var(--primary-color)",
+                    backgroundColor: "var(--primary-color-light)",
                   },
                 },
               }}
@@ -347,7 +347,7 @@ const Robotics = () => {
             },
 
             "& .MuiTab-root.Mui-selected": {
-              backgroundColor: "var(--primary-color)",
+              backgroundColor: "var(--primary-color-light)",
               color: "white !important",
               borderRadius: "var(--l-radius)",
             },
@@ -373,7 +373,7 @@ const Robotics = () => {
                 color: "white !important",
               },
               "& .MuiTabs-indicator": {
-                backgroundColor: "var(--primary-color)",
+                backgroundColor: "var(--primary-color-light)",
               },
             },
           }}
