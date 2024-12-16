@@ -42,7 +42,7 @@ export default function Experience() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <StyledProjects>
         <motion.div
           className="main_projects"

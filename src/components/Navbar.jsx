@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
@@ -12,10 +12,12 @@ import {
 } from "@mui/material";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiChevronDown } from "react-icons/fi";
+import ThemeButton from './ThemeButton'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [projectsOpen, setProjectsOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false); 
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -25,6 +27,39 @@ export default function Navbar() {
     e.stopPropagation();
     setProjectsOpen((prevState) => !prevState);
   };
+
+
+
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+
+
+  useEffect(() => {
+    const savedTheme = sessionStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
+    } else {
+      // Default theme if nothing is set in sessionStorage
+      setIsDarkMode(false); // Default to light mode if no saved preference
+    }
+  }, []);
+
+
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+      document.body.classList.remove("light-mode");
+      sessionStorage.setItem("theme", "dark"); 
+    } else {
+      document.body.classList.add("light-mode");
+      document.body.classList.remove("dark-mode");
+      sessionStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
@@ -163,7 +198,10 @@ export default function Navbar() {
           </ListItemButton>
         </ListItem>
       </List>
+      
       <Divider />
+      <ThemeButton isDarkMode={isDarkMode} toggleTheme={toggleTheme} style={{marginLeft:'20px'}}/>
+     
     </Box>
   );
 
@@ -215,6 +253,8 @@ export default function Navbar() {
             <Link to="/contact" className="links">
               Contact
             </Link>
+
+            <ThemeButton isDarkMode={isDarkMode} toggleTheme={toggleTheme}/>
           </div>
         </div>
 
@@ -234,7 +274,8 @@ export default function Navbar() {
 
 const StyledNavbar = styled.div`
   /* max-height: 10vh; */
-  /* margin-top: 2%; */
+  margin-top: 5%;
+
 
   .main_navbar {
     /* background-color: var(--background-color-light); */

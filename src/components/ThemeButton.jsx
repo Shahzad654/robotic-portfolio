@@ -25,9 +25,11 @@ export default function ThemeButton({ isDarkMode, toggleTheme }) {
 
 const StyledButton = styled.div`
   display: flex;
-  justify-content: end;
-  align-items: flex-end;
-  padding: 2% 3%;
+  /* justify-content: end;
+  align-items: flex-end; */
+  /* padding: 2% 3%; */
+  margin-top: 1%;
+  margin-left: 2%;
   .switch {
     display: inline-block;
     position: relative;

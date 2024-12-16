@@ -16,7 +16,7 @@ export default function OutletProjects() {
   return (
     <>
 
-      <Navbar />
+      {/* <Navbar /> */}
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}

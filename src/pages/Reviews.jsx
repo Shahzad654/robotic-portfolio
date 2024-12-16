@@ -207,7 +207,7 @@ const StyledReviews = styled(motion.div)`
           
 
           &:hover{
-            background-color: var(--blue-color-dark);
+            background-color: var(--light-gray-color);
           }
         }
       }

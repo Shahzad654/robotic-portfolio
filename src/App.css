@@ -17,23 +17,13 @@
 
   --section-margin: 80px;
   --heading-margin: 50px;
-/* 
-  --background-color-light: rgba(255, 255, 255, 0.03); */
+
   --background-color-light: rgba(182,
     180,
     189,
     0.2);
   --background-color-dark: #151312;
   --heading-color: rgba(182, 180, 189, 0.2);
-  --primary-color: #A03232;
-  --primary-color-dark: #8b2a2a;
-  --primary-color-light: #ac4945;
-  --secondary-color: #f9ad3e;
-  --secondary-light-color: #fbc76d;
-  --secondary-dark-color: #d68a2d;
-  --accent-color: #e94c4f;
-  --accent-light-color: #f19092;
-  --accent-dark-color: #e31f22;
 
   --text-color: #002140;
   --text-light-color: #72767E;
@@ -45,12 +35,10 @@
   --gray-color: #9f9f9fdd;
 
   --background-color-light-mode: #e3edf7;
-  /* --light-gray-color: rgba(30, 58, 138, 0.3); */
   --light-gray-color: rgb(30, 58, 138);
   --light-blue-color: rgb(37 99 235);
-  --background-color-light: #e3edf7;
-  --blue-color-dark: #193177;
-  --blue-dark-color: #1168be;
+
+
   --green-dark-color: #85ce33;
   --green-color: #93c65a;
   --green-light: #c0e08e;
@@ -70,7 +58,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --background-color-light: rgba(255, 255, 255, 0.03); */
     --background-color-dark: #151312;
     --background-color-light: rgba(182,
           180,
@@ -81,7 +68,6 @@
     --text-white-color: white;
     --primary-color: #A03232;
     --primary-color-dark: #8b2a2a;
-    /* --primary-color-light: #ac4945; */
     --primary-color-light: #ff4545;
     --shadow-color-light: rgba(255, 255, 255, 0.1);
     --shadow-color-dark: rgba(0, 0, 0, 0.8);
@@ -89,20 +75,17 @@
 }
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
-    /* --background-color-light: rgb(255, 248, 248);
-    --background-color-dark: #ffffff; */
     --background-color-light-mode: #e3edf7;
     --text-color: #333;
     --text-light-color: #555;
     --text-white-color: #000;
-   
     --light-gray-color: rgba(30, 58, 138, 0.3);
     --light-blue-color: rgb(37 99 235);
     --blue-color-dark: #193177;
   }
-}
+} */
 
 * {
   margin: 0;

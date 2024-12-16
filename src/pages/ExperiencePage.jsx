@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
-import BackdropWrapper from "../components/modals/BackdropWrapper";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import experienceDetails from "../Experience";
@@ -18,7 +16,7 @@ export default function ExperiencePage() {
   return (
     <>
       
-      <Navbar />
+      {/* <Navbar /> */}
       <StyledExperience
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}

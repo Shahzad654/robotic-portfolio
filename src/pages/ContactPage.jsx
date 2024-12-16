@@ -8,7 +8,7 @@ import Services from './Services';
 export default function ContactPage() {
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <StyledContactPage>
         <Contact/>
         <Services className='service_section'/>

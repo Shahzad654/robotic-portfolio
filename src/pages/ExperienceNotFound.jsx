@@ -28,7 +28,7 @@ export default function ExperienceNotFound() {
     }, []);
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             <StyledNotFound>
                 <div className="main_container">

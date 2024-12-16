@@ -46,7 +46,7 @@ export default function Freelance() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <StyledProjects>
         <motion.div className="main_projects"
           whileInView={{ y: 0, opacity: 1 }}

@@ -191,7 +191,7 @@ const StyledContact = styled(motion.div)`
         button {
           background-color: var(--light-blue-color);
           &:hover {
-            background-color: var(--blue-color-dark);
+            background-color: var(--light-gray-color);
           }
         }
       }

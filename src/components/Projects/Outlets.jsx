@@ -43,7 +43,7 @@ export default function Outlets() {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <StyledProjects>
                 <div className="main_projects">
                     <div className="header_content">

@@ -131,27 +131,86 @@ const outletprojectDetails = [
 ];
 
 
+// const entrepenurshipDetails = [
+//   {
+//     title: "PIRE Fellowship KAIST",
+//     role: "Researcher",
+//     description: [
+//       "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
+//       "Utilized computer vision to localize and classify several different objects.",
+//       "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+//     ],
+//     achivements: [
+//       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
+//       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+//       ,
+//     ],
+//     companyName: "Devsigns",
+//     duration: "1 Month",
+//     slug: generateSlug("PIRE Fellowship KAIST"),
+//   },
+//   {
+//     title: "PIRE Fellowship KAIST",
+//     role: "Researcher",
+//     description: [
+//       "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
+//       "Utilized computer vision to localize and classify several different objects.",
+//       "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+//     ],
+//     achivements: [
+//       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
+//       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+//       ,
+//     ],
+//     companyName: "XYZ",
+//     duration: "1 Month",
+//     slug: generateSlug("PIRE Fellowship KAIST"),
+//   },
+// ];
+
+
 const entrepenurshipDetails = [
   {
-    title: "XYZ",
-    description: [
-      "Successfully conceptualized and led the design and development of XYZ, an autonomous drone solution, from ideation to execution, ensuring innovation in fast, reliable, and efficient package delivery.",
-      "Identified market needs for time-efficient delivery solutions and implemented cutting-edge technology to address logistical challenges, optimizing delivery time and operational costs.",
-      "Coordinated with diverse technical and business teams to manage product timelines, allocate resources effectively, and streamline technical milestones, driving the successful delivery of XYZ as per business goals.",
-      "Developed and implemented strategic business plans to identify market opportunities, streamline operations, and create sustainable growth pathways, aligning with organizational goals.",
-      "Built and managed a high-performing, cross-functional team by fostering open communication, motivation, and teamwork to achieve project objectives and drive organizational success.",
-      "Conducted in-depth market research to identify customer needs and industry trends, leveraging insights to develop innovative solutions and ensure competitive advantages in the market.",
+    companyName: "Devsigns",
+    projects: [
+      {
+        title: "PIRE Fellowship KAIST",
+        role: "xyz",
+        description: [
+          "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
+          "Utilized computer vision to localize and classify several different objects.",
+          "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+        ],
+        achievements: [
+          "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
+          "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+        ],
+        duration: "1 Month",
+        slug: generateSlug("PIRE Fellowship KAIST"),
+      },
     ],
   },
   {
-    title: "XYZ2",
-    description: [
-      "Developed and implemented strategic business plans to identify market opportunities, streamline operations, and create sustainable growth pathways, aligning with organizational goals.",
-      "Built and managed a high-performing, cross-functional team by fostering open communication, motivation, and teamwork to achieve project objectives and drive organizational success.",
-      "Conducted in-depth market research to identify customer needs and industry trends, leveraging insights to develop innovative solutions and ensure competitive advantages in the market.",
+    companyName: "XYZ",
+    projects: [
+      {
+        title: "Entrepenurship2",
+        role: "Researcher",
+        description: [
+          "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
+          "Utilized computer vision to localize and classify several different objects.",
+          "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+        ],
+        achievements: [
+          "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
+          "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+        ],
+        duration: "1 Month",
+        slug: generateSlug("Entrepenurship2"),
+      },
     ],
-    image: ProjectImg4,
   },
 ];
+
 
 export { projectDetails, outletprojectDetails, entrepenurshipDetails };

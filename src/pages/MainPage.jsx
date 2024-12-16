@@ -12,7 +12,7 @@ import Footer from "../components/Footer";
 export default function MainPage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <StyledPage>
         <ProfileCard />
         <MainContent />
