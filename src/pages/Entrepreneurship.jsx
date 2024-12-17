@@ -19,7 +19,12 @@ export default function Entrepreneurship() {
     <>
       {/* <Navbar /> */}
       <StyledEntrepreneurship>
-        <div className="main_entrepreneurship">
+        <motion.div className="main_entrepreneurship" 
+        whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: 50, opacity: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: true }}
+          >
           <h1>Entrepreneurship</h1>
 
           <div className="entrepreneurship_tabs">
@@ -60,10 +65,10 @@ export default function Entrepreneurship() {
                       color: "black",
                     },
                     "& .MuiTab-root.Mui-selected": {
-                      color: "var(--light-blue-color) !important",
+                      color: "var(--secondary-color-light) !important",
                     },
                     "& .MuiTabs-indicator": {
-                      backgroundColor: "var(--light-blue-color)",
+                      backgroundColor: "var(--secondary-color-light)",
                     },
                   },
                   // },
@@ -89,7 +94,7 @@ export default function Entrepreneurship() {
               </Tabs>
             </Box>
           </div>
-        </div>
+        </motion.div>
         <div className="tab_content">
           {/* {value === 0 && <Company1 />} {value === 1 && <Company2 />} */}
           {entrepenurshipDetails.map((company, index) => (
@@ -226,7 +231,7 @@ const StyledCompany1 = styled.div`
     .main_experience {
       h1 {
         span {
-           color: var(--light-blue-color)
+           color: var(----secondary-color-light)
         }
       }
     }

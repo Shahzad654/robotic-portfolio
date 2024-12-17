@@ -165,7 +165,7 @@ const StyledService = styled(motion.div)`
         content: "✓";
         position: absolute;
         left: 0;
-        color: var(--light-blue-color);
+        color: var(--secondary-color-light);
         font-weight: bold;
       }
       button {
@@ -220,7 +220,7 @@ const StyledService = styled(motion.div)`
         content: "✓";
         position: absolute;
         left: 0;
-        color: var(--light-blue-color);
+        color: var(--secondary-color-light);
         font-weight: bold;
       }
     button {
@@ -260,7 +260,7 @@ const StyledService = styled(motion.div)`
   body.light-mode & {
     .services_cards {
       .cards {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: #e3edf7;
         box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
         h4,
@@ -273,14 +273,14 @@ const StyledService = styled(motion.div)`
           }
         }
         button {
-          background-color: var(--light-blue-color);
+          background-color: var(--secondary-color-light);
           &:hover {
-            background-color: var(--light-gray-color);
+            background-color: var(--secondary-color-dark);
           }
         }
       }
       .cards_center {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: #e3edf7;
         box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
         h4,
@@ -293,9 +293,9 @@ const StyledService = styled(motion.div)`
           }
         }
         button {
-          background-color: var(--light-blue-color);
+          background-color: var(--secondary-color-light);
           &:hover {
-            background-color: var(--light-gray-color);
+            background-color: var(--secondary-color-dark);
           }
         }
       }

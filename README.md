@@ -39,8 +39,8 @@ To **change the color scheme** of the website, update the following values in th
 
 1. Open `App.css` in the `/src` folder.
 # For light mode:
-1. Find the `--light-blue-color` variable in the root section.
+1. Find the `--secondary-color-dark` and `--secondary-color-light` variable in the root section.
 2. Change its value to your preferred color. 
 # For dark mode:
-1. Find the `--primary-color-light` variable in the `dark-color-scheme` section.
+1. Find the `--primary-color-light` and  `--primary-color-dark` variable in the `dark-color-scheme` section.
 2. Change its value to your preferred color.

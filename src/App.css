@@ -35,8 +35,10 @@
   --gray-color: #9f9f9fdd;
 
   --background-color-light-mode: #e3edf7;
-  --light-gray-color: rgb(30, 58, 138);
-  --light-blue-color: rgb(37 99 235);
+  /* --light-gray-color: rgb(30, 58, 138);
+  --light-blue-color: rgb(37 99 235); */
+  --secondary-color-dark: rgb(30, 58, 138);
+  --secondary-color-light: rgb(37 99 235);
 
 
   --green-dark-color: #85ce33;

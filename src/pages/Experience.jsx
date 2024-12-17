@@ -165,7 +165,7 @@ const StyledExperience = styled(motion.div)`
     .main_experience{
       h1{
         span{
-         color:var( --light-blue-color);
+         color:var( --secondary-color-light);
         }
       }
     }
@@ -184,9 +184,9 @@ const StyledExperience = styled(motion.div)`
 
       }
       button{
-     background-color: var(--light-blue-color);
+     background-color: var(--secondary-color-light);
      &:hover{
-       background-color: var(--light-gray-color);
+       background-color: var(--secondary-color-dark);
      }
     }
     }

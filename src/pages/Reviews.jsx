@@ -203,11 +203,11 @@ const StyledReviews = styled(motion.div)`
       .controls {
         .prev,
         .next {
-          background-color: var(--light-blue-color);
+          background-color: var(--secondary-color-light);
           
 
           &:hover{
-            background-color: var(--light-gray-color);
+            background-color: var(--secondary-color-dark);
           }
         }
       }

@@ -1,49 +1,46 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import emailjs from '@emailjs/browser';
 import Snackbar from "@mui/material/Snackbar";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useForm, ValidationError } from '@formspree/react';
+import Alert from "@mui/material/Alert";
 
 export default function Contact() {
-  const form = useRef();
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    setLoading(true); 
-
-    emailjs
-      .sendForm('service_yn86py9', 'template_asp7dxm', form.current, {
-        publicKey: 'CPJO2-PkW9nfq3rAV',
-      })
-      .then(
-        (response) => {
-          console.log('SUCCESS!', response);
-          form.current.reset();
-          setSnackbarMessage("Email sent successfully!");
-          setSnackbarSeverity("success");
-          setSnackbarOpen(true); 
-        },
-        (error) => {
-          console.error('FAILED...', error);
-          setSnackbarMessage("Failed to send email. Please try again.");
-          setSnackbarSeverity("error");
-          setSnackbarOpen(true); 
-        }
-      )
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  const [state, handleSubmit] = useForm("xbljlbpv");
 
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    handleSubmit(e).then((response) => {
+      if (state.succeeded) {
+        setSnackbarMessage("Thanks for reaching out! We'll get back to you soon.");
+        setSnackbarSeverity("success");
+      } else {
+        setSnackbarMessage("Something went wrong. Please try again.");
+        setSnackbarSeverity("error");
+      }
+    }).catch((error) => {
+      console.error("Error:", error);
+      setSnackbarMessage("Error: Please try again later.");
+      setSnackbarSeverity("error");
+    }).finally(() => {
+      setLoading(false); 
+      setSnackbarOpen(true); 
+    });
+  };
+
+
 
   return (
     <StyledContact
@@ -57,34 +54,39 @@ export default function Contact() {
           LET'S WORK <span>TOGETHER</span>
         </h1>
 
-        <form ref={form} onSubmit={sendEmail}>
+        <form 
+          onSubmit={onSubmit}>
           <label htmlFor="name">Name</label>
-          <input type="text" name="user_name" placeholder="Name" required />
+          <input type="text" id="name" name="name" placeholder="Name" required />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
           <br />
           <label htmlFor="email">Email</label>
-          <input type="email" name="user_email" placeholder="Email" required />
+          <input type="email" id="email" name="email" placeholder="Email" required />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
           <br />
           <label htmlFor="message">Message</label>
-          <textarea name="message" placeholder="Message" required></textarea>
+          <textarea id="message" name="message" placeholder="Message" required></textarea>
+          <ValidationError prefix="Message" field="message" errors={state.errors} />
           <br />
           <button type="submit" disabled={loading}>
-            {loading ? <CircularProgress size={24} style={{color:'white'}}/> : "Submit"}
+            {loading ? <CircularProgress size={24} style={{ color: 'white' }} /> : "Submit"}
           </button>
         </form>
       </div>
 
-     
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
-        message={snackbarMessage}
-        severity={snackbarSeverity}
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'center',
         }}
-      />
+      >
+        <Alert severity={snackbarSeverity} onClose={handleSnackbarClose}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </StyledContact>
   );
 }
@@ -168,7 +170,7 @@ const StyledContact = styled(motion.div)`
     .main_contact {
       h1 {
         span {
-          color: var(--light-blue-color);
+          color: var(--secondary-color-light);
         }
       }
 
@@ -184,14 +186,14 @@ const StyledContact = styled(motion.div)`
 
         input:focus,
         textarea:focus {
-          border-color: var(--light-blue-color);
-          outline-color: var(--light-blue-color);
+          border-color: var(--secondary-color-light);
+          outline-color: var(--secondary-color-light);
         }
 
         button {
-          background-color: var(--light-blue-color);
+          background-color: var(--secondary-color-light);
           &:hover {
-            background-color: var(--light-gray-color);
+            background-color: var(--secondary-color-dark);
           }
         }
       }

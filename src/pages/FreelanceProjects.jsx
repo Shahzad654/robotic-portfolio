@@ -162,13 +162,13 @@ const StyledProjects = styled(motion.div)`
     .main_projects {
       h1 {
         span {
-          color: var(--light-blue-color)
+          color: var(--secondary-color-light)
         }
       }
     }
     .project_cards {
       .card {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: #e3edf7;
         box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
         .content {

@@ -108,10 +108,10 @@ export default function Skills() {
                     color: "black",
                   },
                   "& .MuiTab-root.Mui-selected": {
-                    color: "var(--light-blue-color) !important",
+                    color: "var(--secondary-color-light) !important",
                   },
                   "& .MuiTabs-indicator": {
-                    backgroundColor: "var(--light-blue-color)",
+                    backgroundColor: "var(--secondary-color-light)",
                   },
                 },
                 // },
@@ -358,10 +358,10 @@ const Robotics = () => {
               },
               "& .MuiTab-root.Mui-selected": {
                 color: "white !important",
-                backgroundColor: "var(--light-blue-color)",
+                backgroundColor: "var(--secondary-color-light)",
               },
               "& .MuiTabs-indicator": {
-                backgroundColor: "var(--light-blue-color)",
+                backgroundColor: "var(--secondary-color-light)",
               },
             },
 
@@ -747,7 +747,7 @@ const StyledDevops = styled.div`
   body.light-mode & {
     .skill_cards {
       .card {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: linear-gradient(
           to right,
           var(--background-color-light-mode),

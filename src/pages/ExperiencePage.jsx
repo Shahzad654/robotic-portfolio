@@ -132,13 +132,13 @@ const StyledExperience = styled(motion.div)`
     .main_experience {
       h1 {
         span {
-           color: var(--light-blue-color)
+           color: var(--secondary-color-light)
         }
       }
     }
     .experience_cards {
       .card {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: linear-gradient(
           to right,
           var(--background-color-light-mode),

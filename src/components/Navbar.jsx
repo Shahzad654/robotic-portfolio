@@ -391,7 +391,7 @@ const StyledNavbar = styled.div`
 
   body.light-mode & {
     .main_navbar {
-      /* background-color: var(--light-gray-color); */
+      /* background-color: var(--secondary-color-dark); */
       background: #e3edf7;
       box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
       a {
@@ -400,18 +400,18 @@ const StyledNavbar = styled.div`
       .dropbtn {
         color: black;
         &:hover {
-          color: var(--light-blue-color);
+          color: var(--secondary-color-light);
         }
       }
 
       .links {
         &:hover {
-          color: var(--light-blue-color);
+          color: var(--secondary-color-light);
         }
       }
 
       .dropdown-content {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: #e3edf7;
         box-shadow: 20px 20px 60px #c1c9d2, -20px -20px 60px #ffffff;
         /* box-shadow: 0 20px 60px #c1c9d2, 0 -20px 60px #ffffff; */
@@ -421,7 +421,7 @@ const StyledNavbar = styled.div`
       }
 
       .dropdown-content a:hover {
-        background-color: var(--light-blue-color);
+        background-color: var(--secondary-color-light);
         color: white;
       }
     }

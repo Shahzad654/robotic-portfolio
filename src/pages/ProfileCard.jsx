@@ -125,7 +125,7 @@ const StyledProfile = styled(motion.div)`
 
     .icon_container {
       .icon {
-        color: var(--light-blue-color);
+        color: var(--secondary-color-light);
 
         &:hover {
           color: var(--blue-color-dark);

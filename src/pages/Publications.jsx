@@ -189,7 +189,7 @@ const StyledPublications = styled(motion.div)`
   body.light-mode & {
     .experience_cards {
       .card {
-        /* background-color: var(--light-gray-color); */
+        /* background-color: var(--secondary-color-dark); */
         background: linear-gradient(
           to right,
           var(--background-color-light-mode),
@@ -204,7 +204,7 @@ const StyledPublications = styled(motion.div)`
           }
         }
         .icon {
-          color: var(--light-blue-color);
+          color: var(--secondary-color-light);
         }
       }
     }

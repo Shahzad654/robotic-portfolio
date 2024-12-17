@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import ProjectModal from "../components/modals/ProjectModal";
-import BackdropWrapper from "../components/modals/BackdropWrapper";
 import { projectDetails } from "../Projects";
 
 export default function Projects() {
@@ -154,7 +152,7 @@ const StyledProjects = styled(motion.div)`
     .main_projects {
       h1 {
         span {
-          color: var(--light-blue-color);
+          color: var(--secondary-color-light);
         }
       }
       .project_cards {

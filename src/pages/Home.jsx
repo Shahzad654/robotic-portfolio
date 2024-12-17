@@ -135,7 +135,7 @@ const StyledHome = styled(motion.div)`
     .main_home {
        h1{
         span{
-          color:var( --light-blue-color);
+          color:var( --secondary-color-light);
         }
       }
       p {
