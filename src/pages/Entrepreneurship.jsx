@@ -1,272 +1,76 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
 import Footer from "../components/Footer";
 import { entrepenurshipDetails } from "../Projects";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 
 export default function Entrepreneurship() {
-  const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-  
   return (
     <>
-      {/* <Navbar /> */}
       <StyledEntrepreneurship>
-        <motion.div className="main_entrepreneurship" 
-        whileInView={{ y: 0, opacity: 1 }}
+        <motion.div
+          className="main_entrepreneurship"
+          whileInView={{ y: 0, opacity: 1 }}
           initial={{ y: 50, opacity: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
-          >
+        >
           <h1>Entrepreneurship</h1>
 
-          <div className="entrepreneurship_tabs">
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Tabs
-                onChange={handleChange}
-                value={value}
-                aria-label="Tabs where selection follows focus"
-                selectionFollowsFocus
-                sx={{
-                  "& .MuiTabs-indicator": {
-                    top: 0,
-                    bottom: "auto",
-                    backgroundColor: "var(--primary-color)",
-                  },
+          {entrepenurshipDetails.map((company, companyIndex) => (
+            <motion.div key={companyIndex} className="main_container" whileInView={{ y: 0, opacity: 1 }}
+              initial={{ y: 50, opacity: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true }}>
+              <h2>{company.companyName}</h2>
+              <p>{company.role}</p>
 
-                  "& .MuiTab-root": {
-                    fontFamily: "Poppins, sans-serif",
-                    fontSize: "2rem",
-                    textTransform: "none",
-                    color: "var(--background-color-dark)",
-                  },
+              {company.projects.map((project, projectIndex) => (
+                <motion.div key={projectIndex} className="main_content" whileInView={{ y: 0, opacity: 1 }}
+                  initial={{ y: 50, opacity: 0 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  viewport={{ once: true }}>
+                  {projectIndex % 2 === 0 ? (
+                    <>
+                      <div className="left_side">
+                        <h3>{project.firstSubHeading}</h3>
+                        <ul>
+                          {project.description.map((desc, index) => (
+                            <li key={index}>{desc}</li>
+                          ))}
+                        </ul>
+                      </div>
 
-                  "& .MuiTab-root.Mui-selected": {
-                    color: "var(--primary-color) !important",
-                  },
+                      <div className="right_side">
+                        <img src={project.image} alt="Research" />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="right_side">
+                        <img src={project.image} alt="Research" />
+                      </div>
 
-                  //  body: {
-                  "body.light-mode &": {
-                    "& .MuiTab-root": {
-                      color: "black",
-                    },
-                    "& .MuiTab-root.Mui-selected": {
-                      color: "var(--secondary-color-light) !important",
-                    },
-                    "& .MuiTabs-indicator": {
-                      backgroundColor: "var(--secondary-color-light)",
-                    },
-                  },
-                  // },
-
-                  "body.dark-mode &": {
-                    "& .MuiTab-root": {
-                      color: "var(--background-color-light)",
-                    },
-                    "& .MuiTab-root.Mui-selected": {
-                      color: "var(--primary-color) !important",
-                    },
-                    "& .MuiTabs-indicator": {
-                      backgroundColor: "var(--primary-color)",
-                    },
-                  },
-                }}
-              >
-                {/* <Tab label="XYZ1" />
-                <Tab label="XYZ2" /> */}
-                {entrepenurshipDetails.map((company, index) => (
-                  <Tab label={company.companyName} key={index} />
-                ))}
-              </Tabs>
-            </Box>
-          </div>
-        </motion.div>
-        <div className="tab_content">
-          {/* {value === 0 && <Company1 />} {value === 1 && <Company2 />} */}
-          {entrepenurshipDetails.map((company, index) => (
-            value === index && <CompanyDetails key={index} company={company} />
+                      <div className="left_side">
+                        <h3>{project.firstSubHeading}</h3>
+                        <ul>
+                          {project.description.map((desc, index) => (
+                            <li key={index}>{desc}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </StyledEntrepreneurship>
       <Footer />
     </>
   );
 }
-
-
-const CompanyDetails = ({ company }) => {
-  const navigate = useNavigate();
-
-  const passHandler = (project) => {
-    navigate(`/entrepreneurship/${project.slug}`);
-  };
-
-  return (
-    <StyledCompany1
-      whileInView={{ y: 0, opacity: 1 }}
-      initial={{ y: 50, opacity: 0 }}
-      transition={{ duration: 1, delay: 0.3 }}
-      viewport={{ once: true }}
-    >
-      <div className="company1_container">
-        <div className="main_experience">
-          <div className="experience_cards">
-            {company.projects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="card"
-                whileInView={{ y: 0, opacity: 1 }}
-                initial={{ y: 20, opacity: 0 }}
-                transition={{ duration: 1, delay: 0.4 + index * 0.1 }}
-                viewport={{ once: true }}
-                onClick={() => passHandler(project)}
-              >
-                <div className="content">
-                  <h3>{project.title}</h3>
-                  <h5>{project.role}</h5>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </StyledCompany1>
-  );
-};
-
-
-const StyledCompany1 = styled.div`
-  margin-top: var(--section-margin);
-
-  .company1_container {
-    ul {
-      display: flex;
-      justify-content: start;
-      align-items: flex-start;
-      li {
-        list-style: circle;
-        max-width: 80ch;
-      }
-    }
-
-    .main_experience {
-    h1 {
-      font-size: var(--xl-heading);
-      margin-bottom: var(--heading-margin);
-
-      span {
-        display: block;
-        font-size: var(--xl-heading);
-        font-weight: 600;
-        line-height: 1;
-        color: var(--background-color-light);
-      }
-    }
-
-    .experience_cards {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-      gap: 2rem;
-
-      .card {
-        width: 100%;
-        height: 200px;
-        border-radius: var(--m-radius);
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 2rem;
-        /* background-color: var(--background-color-light); */
-        cursor: pointer;
-
-        .content {
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 1rem;
-          padding-top: 5%;
-          padding-left: 3%;
-          padding-bottom: 5%;
-        }
-
-        .icon {
-          width: 30px;
-          height: 30px;
-          color: var(--primary-color);
-        }
-      }
-    }
-  }
-  }
-
-  @media (max-width: 640px) {
-    .company1_container {
-      ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-
-  body.light-mode & {
-    .main_experience {
-      h1 {
-        span {
-           color: var(----secondary-color-light)
-        }
-      }
-    }
-    .experience_cards {
-      .card {
-        background: linear-gradient(
-          to right,
-          var(--background-color-light-mode),
-          #fdfeff
-        );
-        box-shadow: 20px 20px 60px #c1c9d2 -20px -20px 60px #ffffff;
-        .content {
-          h3,
-          h5 {
-            color: black;
-          }
-        }
-      }
-    }
-  }
-
-  body.dark-mode & {
-    .experience_cards {
-      .card {
-        box-shadow: 4px 4px 8px var(--shadow-color-dark),
-          -4px -4px 8px var(--shadow-color-light);
-        .content {
-          p {
-            color: var(--text-light-color);
-          }
-        }
-      }
-    }
-  }
-`;
 
 const StyledEntrepreneurship = styled.div`
   width: 80%;
@@ -278,8 +82,58 @@ const StyledEntrepreneurship = styled.div`
       margin-bottom: var(--heading-margin);
     }
 
-    .entrepreneurship_tabs {
+    .main_container:nth-of-type(n + 2) {
       margin-top: var(--section-margin);
+    }
+
+    .main_container {
+      h2,
+      p {
+        text-align: center;
+      }
+
+      .main_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: var(--section-margin);
+
+        .right_side,
+        .left_side {
+          flex-basis: 45%;
+        }
+
+        .right_side {
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--l-radius);
+          }
+        }
+
+        .left_side {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: column;
+          h3 {
+            margin-bottom: 20px;
+          }
+          ul {
+            list-style: none;
+            padding-left: 0;
+          }
+
+          ul li::before {
+            content: "✔";
+            margin-right: 10px;
+            color: var(--secondary-color-light);
+            font-size: 1.5em;
+          }
+        }
+      }
     }
   }
 
@@ -296,6 +150,49 @@ const StyledEntrepreneurship = styled.div`
       h1 {
         word-break: break-word;
         overflow-wrap: break-word;
+      }
+      .main_container {
+        .main_content {
+          .left_side {
+            flex-basis: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: start;
+            h3 {
+              text-align: center;
+            }
+            
+          }
+
+          .right_side {
+            flex-basis: 100%;
+            fl img {
+              width: 100%;
+              height: auto;
+              border-radius: var(--l-radius);
+            }
+          }
+
+          .left_side {
+            order: 1;
+          }
+
+          .right_side {
+            order: 2;
+          }
+        }
+      }
+    }
+  }
+
+  body.dark-mode & {
+    .main_container {
+      .main_content {
+        .left_side {
+          ul li::before {
+            color: var(--primary-color-light);
+          }
+        }
       }
     }
   }

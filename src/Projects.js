@@ -4,6 +4,8 @@ import ProjectImg3 from "./assets/Project3.jpg";
 import ProjectImg4 from "./assets/Project4.png";
 import ProjectImg5 from "./assets/no cloud.png";
 import ProjectImg6 from "./assets/swing sauce.png";
+import ResearchImg from './assets/research.jpg'
+import TravelImg from "./assets/travel.jpg";
 import {generateSlug} from './utils/slugify'
 
 const projectDetails = [
@@ -131,82 +133,56 @@ const outletprojectDetails = [
 ];
 
 
-// const entrepenurshipDetails = [
-//   {
-//     title: "PIRE Fellowship KAIST",
-//     role: "Researcher",
-//     description: [
-//       "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
-//       "Utilized computer vision to localize and classify several different objects.",
-//       "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
-//     ],
-//     achivements: [
-//       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-//       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
-//       ,
-//     ],
-//     companyName: "Devsigns",
-//     duration: "1 Month",
-//     slug: generateSlug("PIRE Fellowship KAIST"),
-//   },
-//   {
-//     title: "PIRE Fellowship KAIST",
-//     role: "Researcher",
-//     description: [
-//       "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
-//       "Utilized computer vision to localize and classify several different objects.",
-//       "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
-//     ],
-//     achivements: [
-//       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-//       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
-//       ,
-//     ],
-//     companyName: "XYZ",
-//     duration: "1 Month",
-//     slug: generateSlug("PIRE Fellowship KAIST"),
-//   },
-// ];
-
-
 const entrepenurshipDetails = [
+  
   {
-    companyName: "Devsigns",
+    companyName: "XYZ",
+    role: "Researcher",
     projects: [
       {
-        title: "PIRE Fellowship KAIST",
-        role: "xyz",
+        firstSubHeading: "Research Experience",
         description: [
-          "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
-          "Utilized computer vision to localize and classify several different objects.",
-          "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+          "I have three research paper and 4 years of research experience.",
+          "My work focused on Teleoperation of robots",
+          "I also worked with AR/VR.",
         ],
-        achievements: [
-          "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-          "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+        image: ResearchImg,
+      },
+
+      {
+        firstSubHeading: "Travel",
+        description: [
+          "I have three research paper and 4 years of research experience.",
+          "My work focused on Teleoperation of robots",
+          "I also worked with AR/VR.",
         ],
-        duration: "1 Month",
-        slug: generateSlug("PIRE Fellowship KAIST"),
+        image: TravelImg,
       },
     ],
   },
+
   {
-    companyName: "XYZ",
+    companyName: "Devsigns",
+    role: "Researcher",
     projects: [
       {
-        title: "Entrepenurship2",
-        role: "Researcher",
+        firstSubHeading: "Research Experience",
         description: [
-          "Acquired a $5,000+ National Science Foundation (NSF) grant for international robotics research.",
-          "Utilized computer vision to localize and classify several different objects.",
-          "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
+          "I have three research paper and 4 years of research experience.",
+          "My work focused on Teleoperation of robots",
+          "I also worked with AR/VR.",
         ],
-        achievements: [
-          "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-          "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+        image: ResearchImg,
+      },
+
+      {
+        firstSubHeading: "Research Experience2",
+        description: [
+          "I have three research paper and 4 years of research experience.",
+          "My work focused on Teleoperation of robots",
+          "I also worked with AR/VR.",
         ],
-        duration: "1 Month",
-        slug: generateSlug("Entrepenurship2"),
+        image: TravelImg,
       },
     ],
   },
