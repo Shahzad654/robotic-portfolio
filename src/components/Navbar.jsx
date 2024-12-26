@@ -13,6 +13,7 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiChevronDown } from "react-icons/fi";
 import ThemeButton from './ThemeButton'
+import { SiTruenas } from "react-icons/si";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,18 +36,20 @@ export default function Navbar() {
     setIsDarkMode(!isDarkMode);
   };
 
-
-
   useEffect(() => {
-    const savedTheme = sessionStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    } else {
-      // Default theme if nothing is set in sessionStorage
-      setIsDarkMode(false); // Default to light mode if no saved preference
+   
+    const themeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    console.log("system theme", themeQuery);
+    if (themeQuery.matches){
+      console.log('system color is dark')
+      setIsDarkMode(true)
     }
-  }, []);
+    else{
+      console.log('system color is light')
+      setIsDarkMode(false)
+    }
 
+  }, []);
 
 
   useEffect(() => {
@@ -60,6 +63,7 @@ export default function Navbar() {
       sessionStorage.setItem("theme", "light");
     }
   }, [isDarkMode]);
+
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
