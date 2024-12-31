@@ -764,8 +764,9 @@ const StyledDevops = styled.div`
     .skill_cards {
       .card {
         /* background-color: var(--background-color-light); */
-        box-shadow: 4px 4px 8px var(--shadow-color-dark),
-          -4px -4px 8px var(--shadow-color-light);
+        // box-shadow: 4px 4px 8px var(--shadow-color-dark),
+        //   -4px -4px 8px var(--shadow-color-light);
+        box-shadow: 2px 2px 24px var(--shadow-color-dark), -4px -4px 8px rgb(255 255 255 / 8%);
       }
     }
   }

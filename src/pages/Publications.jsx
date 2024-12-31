@@ -139,7 +139,7 @@ const StyledPublications = styled(motion.div)`
       gap: 2rem;
 
       .card {
-        width: 100%;
+        width: 90%;
         height: min-content;
         /* height: 200px; */
         border-radius: var(--m-radius);
@@ -213,8 +213,9 @@ const StyledPublications = styled(motion.div)`
   body.dark-mode & {
     .experience_cards {
       .card {
-        box-shadow: 4px 4px 8px var(--shadow-color-dark),
-          -4px -4px 8px var(--shadow-color-light);
+        // box-shadow: 4px 4px 8px var(--shadow-color-dark),
+        //   -4px -4px 8px var(--shadow-color-light);
+        box-shadow: 2px 2px 24px var(--shadow-color-dark), -4px -4px 8px rgb(255 255 255 / 8%);
         .content {
           p {
             color: var(--text-light-color);

@@ -50,6 +50,7 @@ export default function Experience() {
               initial={{ y: 20, opacity: 0 }}
               transition={{ duration: 1.2, delay: 0.5 }}
               viewport={{ once: true }}
+              style={{marginLeft:'5%'}}
               onClick={() => {
                 navigate("/experience");
               }}
@@ -91,7 +92,8 @@ const StyledExperience = styled(motion.div)`
       gap: 2rem;
 
       .card {
-        width: 100%;
+        width: 90%;
+        margin: auto;
         /* height: min-content; */
         height: 150px;
         border-radius: var(--m-radius);
@@ -195,8 +197,9 @@ const StyledExperience = styled(motion.div)`
   body.dark-mode & {
     .experience_cards {
       .card {
-        box-shadow: 4px 4px 8px var(--shadow-color-dark),
-          -4px -4px 8px var(--shadow-color-light);
+        // box-shadow: 4px 4px 8px var(--shadow-color-dark),
+        //   -4px -4px 8px var(--shadow-color-light);
+        box-shadow: 2px 2px 24px var(--shadow-color-dark), -4px -4px 8px rgb(255 255 255 / 8%);
         .content {
           p {
             color: var(--text-light-color);
