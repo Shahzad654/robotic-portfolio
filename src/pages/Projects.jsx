@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { projectDetails } from "../Projects";
 
 export default function Projects() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const passHandler = (project) => {
     navigate(`/projects/${project.slug}`);
@@ -13,7 +13,6 @@ export default function Projects() {
 
   return (
     <>
-      
       <StyledProjects
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}
@@ -88,7 +87,7 @@ const StyledProjects = styled(motion.div)`
         gap: 1rem;
         padding-left: 2%;
         /* background-color: var(--background-color-light); */
-       
+
         cursor: pointer;
 
         .image_container {
@@ -125,6 +124,17 @@ const StyledProjects = styled(motion.div)`
             /* text-align: center; */
             /* color: var(--heading-color); */
           }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    .main_projects {
+      .project_cards {
+
+        .card {
+          height: 200px;
         }
       }
     }
@@ -173,7 +183,8 @@ const StyledProjects = styled(motion.div)`
       .card {
         // box-shadow: 4px 4px 8px var(--shadow-color-dark),
         //   -4px -4px 8px var(--shadow-color-light);
-        box-shadow: 2px 2px 24px var(--shadow-color-dark), -4px -4px 8px rgb(255 255 255 / 8%);
+        box-shadow: 2px 2px 24px var(--shadow-color-dark),
+          -4px -4px 8px rgb(255 255 255 / 8%);
         /* &:hover {
           background-color: var(--background-color-light);
         } */
