@@ -3,7 +3,7 @@ import { generateSlug } from "./utils/slugify";
 const experienceDetails = [
   {
     title: "ANA Avatar Xprize Team (AVATAR-HUBO)",
-    role: "Lean Integration Engineer",
+    role: "Lead Integration Engineer",
     description: [
       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
       "Integrated novel Virtual Reality software and hardware interfaces to streamline intuitive humanoid teleoperation.",
@@ -13,14 +13,14 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
     ],
     video:
-      "https://www.youtube.com/embed/E9DXL_hvtdI?si=lY8NhJ4sf7Jwfnnl&amp;start=1",
+      "https://www.youtube.com/embed/NKDnU7MWiGY?si=iJ2wq1CR3neFq37v",
     achivements: [
       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
-    companyName: "XYZ",
-    duration: "1 Month",
+    companyName: "DASL",
+    duration: "2 Years",
     slug: generateSlug("ANA Avatar Xprize Team (AVATAR-HUBO)"),
   },
   {
@@ -31,14 +31,14 @@ const experienceDetails = [
       "Implemented perceptive mobile manipulation with SPOT via Haddington Dynamics’ robotic manipulator Dexter.",
       "Produced a Virtual Reality-based robot simulator via the 3D Game Engine Unity.",
     ],
-    video: "https://www.youtube.com/embed/2z80TuAxnKA?si=qeMpS9_PRrLezNmD",
+    video: "https://www.youtube.com/embed/HAEc6R5E4UM?si=EyOw2p76kZs3gtZD",
     achivements: [
       "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
-    companyName: "XYZ",
-    duration: "1 Month",
+    companyName: "TSLA/UNLV",
+    duration: "6 Months",
     slug: generateSlug("TSLA UNLV Independent Research Contract"),
   },
   {
@@ -54,8 +54,8 @@ const experienceDetails = [
       "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
       ,
     ],
-    companyName: "XYZ",
-    duration: "1 Month",
+    companyName: "DASL",
+    duration: "3 Years",
     slug: generateSlug("Drone and Autonomous Systems Lab (DASL)"),
   },
   {
@@ -65,12 +65,11 @@ const experienceDetails = [
       "Lead 10+ people team for a fortune 500 company contract. Designed and Integrated systems to achieve dynamic pick and place using industrial manipulators.",
     ],
     achivements: [
-      "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-      "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
+      "Managed and Industrial Projects",
       ,
     ],
-    companyName: "XYZ",
-    duration: "1 Month",
+    companyName: "UoFL",
+    duration: "1 Year",
     slug: generateSlug("Industrial Automation Center"),
   },
 
@@ -82,13 +81,12 @@ const experienceDetails = [
       "Utilized computer vision to localize and classify several different objects.",
       "Performed successful pick-and-place experimentation with classified objects via the Rainbow Robotics RB5 robotic arm.",
     ],
+    video: "https://www.youtube.com/embed/W4hQQvK_ncU?si=5WgVqoCTbVKkRA2n",
     achivements: [
-      "Contributed to Team Avatar-Hubo’s success in a $10M global robotics competition (150+ teams, 10+ countries).",
-      "Managed and instructed 5+ undergraduate engineering students to expedite robotic hardware and software development.",
-      ,
+      "Gained valuable experience collaborating with engineers from diverse cultures, which broadened my perspective on problem-solving and fostered innovative approaches to challenges.",
     ],
-    companyName: "XYZ",
-    duration: "1 Month",
+    companyName: "KAIST - South Korea",
+    duration: "3 Months",
     slug: generateSlug("PIRE Fellowship KAIST"),
   },
 ];

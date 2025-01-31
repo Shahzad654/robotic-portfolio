@@ -35,7 +35,7 @@ export default function Home() {
           <div className="experience">
             {/* <h1>+4</h1> */}
             <h1>
-              +<CountUp start={0} end={4} duration={4} delay={0.3} className="count-up" />
+              +<CountUp start={0} end={6} duration={6} delay={0.3} className="count-up" />
             </h1>
             <p>YEARS OF EXPERIENCE</p>
           </div>
@@ -51,7 +51,7 @@ export default function Home() {
             <h1>
               +<CountUp start={0} end={10} duration={4} delay={0.3} className="count-up" />
             </h1>
-            <p>WORLDWIDE CLIENTS</p>
+            <p>CLIENT REVIEWS</p>
           </div>
         </motion.div>
       </div>

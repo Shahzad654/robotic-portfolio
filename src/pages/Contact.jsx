@@ -1,46 +1,43 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Snackbar from "@mui/material/Snackbar";
 import CircularProgress from "@mui/material/CircularProgress";
-import { useForm, ValidationError } from '@formspree/react';
+// import { useForm, ValidationError } from '@formspree/react';
 import Alert from "@mui/material/Alert";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-  const [state, handleSubmit] = useForm("xbljlbpv");
+  const form = useRef();
+  // const [state, handleSubmit] = useForm("xbljlbpv");
 
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
   };
-
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log("form submit")
     setLoading(true);
-
-    handleSubmit(e).then((response) => {
-      if (state.succeeded) {
-        setSnackbarMessage("Thanks for reaching out! We'll get back to you soon.");
-        setSnackbarSeverity("success");
-      } else {
-        setSnackbarMessage("Something went wrong. Please try again.");
-        setSnackbarSeverity("error");
-      }
-    }).catch((error) => {
-      console.error("Error:", error);
-      setSnackbarMessage("Error: Please try again later.");
-      setSnackbarSeverity("error");
-    }).finally(() => {
-      setLoading(false); 
-      setSnackbarOpen(true); 
-    });
+    emailjs
+      .sendForm("service_bog0kzh", "template_9gw9m6j", form.current, {
+        publicKey: "LdDFhi9drqdtgjKdd",
+      })
+      .then(() => {
+        console.log("SUCCESS!");
+      })
+      .catch((error) => {
+        console.log("FAILED...", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+    setSnackbarMessage("Form submitted successfully");
+    setSnackbarSeverity("success");
   };
-
-
 
   return (
     <StyledContact
@@ -51,25 +48,45 @@ export default function Contact() {
     >
       <div className="main_contact">
         <h1>
-          LET'S WORK <span>TOGETHER</span>
+          LET&apos;S WORK <span>TOGETHER</span>
         </h1>
 
-        <form 
-          onSubmit={onSubmit}>
+        <form ref={form} onSubmit={onSubmit}>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Name" required />
-          <ValidationError prefix="Name" field="name" errors={state.errors} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          {/* <ValidationError prefix="Name" field="name" errors={state.errors} /> */}
           <br />
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Email" required />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          {/* <ValidationError prefix="Email" field="email" errors={state.errors} /> */}
           <br />
           <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" placeholder="Message" required></textarea>
-          <ValidationError prefix="Message" field="message" errors={state.errors} />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            required
+          ></textarea>
+          {/* <ValidationError prefix="Message" field="message" errors={state.errors} /> */}
           <br />
           <button type="submit" disabled={loading}>
-            {loading ? <CircularProgress size={24} style={{ color: 'white' }} /> : "Submit"}
+            {loading ? (
+              <CircularProgress size={18} style={{ color: "white" }} />
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </div>
@@ -79,8 +96,8 @@ export default function Contact() {
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
+          vertical: "top",
+          horizontal: "center",
         }}
       >
         <Alert severity={snackbarSeverity} onClose={handleSnackbarClose}>

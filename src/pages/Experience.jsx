@@ -24,7 +24,7 @@ export default function Experience() {
       >
         <div className="main_experience">
           <h1>
-            4 YEARS OF <span>EXPERIENCE</span>
+            6 YEARS OF <span>EXPERIENCE</span>
           </h1>
 
           <div className="experience_cards">

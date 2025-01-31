@@ -38,7 +38,7 @@ export default function Navbar() {
 
   useEffect(() => {
    
-    const themeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const themeQuery = window.matchMedia('(prefers-color-scheme: light)');
     console.log("system theme", themeQuery);
     if (themeQuery.matches){
       console.log('system color is dark')

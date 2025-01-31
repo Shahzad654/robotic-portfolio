@@ -15,7 +15,7 @@ export default function Entrepreneurship() {
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <h1>Entrepreneurship</h1>
+          <h1>Entrepreneurship, Coming Soon...</h1>
 
           {entrepenurshipDetails.map((company, companyIndex) => (
             <motion.div key={companyIndex} className="main_container" whileInView={{ y: 0, opacity: 1 }}

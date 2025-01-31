@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import ProfileImg from "../assets/profile.jpeg";
 import { BsTwitterX } from "react-icons/bs";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
-import { MdOutlineMailOutline } from "react-icons/md";
 import { motion } from "framer-motion";
+import { IoMail } from "react-icons/io5";
 
 export default function ProfileCard() {
   return (
@@ -33,10 +33,18 @@ export default function ProfileCard() {
           </p>
 
           <div className="icon_container">
-            <BsTwitterX className="icon" />
-            <FaInstagram className="icon" />
-            <FaYoutube className="icon" />
-            <MdOutlineMailOutline className="icon" />
+            <a>
+              <BsTwitterX className="icon" />
+            </a>
+            <a>
+              <FaLinkedin className="icon" />
+            </a>
+            <a target="_blank" href="https://www.youtube.com/@DavesEngineeringGarage">
+              <FaYoutube className="icon" />
+            </a>
+            <a>
+              <IoMail className="icon" />
+            </a>
           </div>
         </div>
       </StyledProfile>
@@ -96,8 +104,7 @@ const StyledProfile = styled(motion.div)`
   }
 
   body.dark-mode & {
-  
-      background-color: white;
+    background-color: white;
 
     .main_profile {
       /* h2 {
@@ -107,15 +114,13 @@ const StyledProfile = styled(motion.div)`
         color: white;
       } */
 
-    .icon_container {
-      .icon {
-
-        &:hover {
-          color: var(--primary-color-dark);
+      .icon_container {
+        .icon {
+          &:hover {
+            color: var(--primary-color-dark);
+          }
         }
       }
-    }
-      
     }
   }
 

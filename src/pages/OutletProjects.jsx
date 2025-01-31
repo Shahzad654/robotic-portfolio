@@ -25,7 +25,7 @@ export default function OutletProjects() {
       >
         <div className="main_projects">
           <h1>
-            Outlet <span>PROJECTS</span>
+            Creative Outlet <span>PROJECTS</span>
           </h1>
 
           <div className="project_cards">
